@@ -33,13 +33,13 @@
 
 \section{Actions de l'application}
 
-L'application possède deux vues, une pour enregistrer et consulter des réservation de la part du client, et une seconde pour créer des produits de la part du commerçant et lister les reservations actuelles. Ces deux vues comportent une liste d'actions triés par ordre de priorité et décritent par la suite.
+L'application possède deux vues, une pour enregistrer et consulter des réservations de la part du client, et une seconde pour créer des produits de la part du commerçant et lister les réservations actuelles. Ces deux vues comportent une liste d'actions triées par ordre de priorité et décritent par la suite.
 
 \subsection{Vue client}
 
 \subsubsection{Enregistrer un compte et se connecter}
 
-Un client doit pouvoir créer un compte nécessitant les informations suivante~;
+Un client doit pouvoir créer un compte nécessitant les informations suivantes~;
 \begin{itemize}
 	\item email~: pour pouvoir contacter le client en cas de problèmes~;
 	\item nom~: nom pour lequel le client va pouvoir se connecter et retirer son produit au près d'un commerçant~;
@@ -50,35 +50,35 @@ Il suffit du nom et du mot de passe pour se connecter à l'application.
 
 \subsubsection{Lister les commerces}
 
-Cette action presente une liste de tous les commerces enregistrés sur l'application, le client peut cliquer sur un des éléments pour voir la description du commerce ou procédé à des opérations concernant ce commerce.
+Cette action présente une liste de tous les commerces enregistrés sur l'application, le client peut cliquer sur un des éléments pour voir la déscription du commerce ou procéder à des opérations concernant ce commerce.
 
 \subsubsection{Reserver des produits}
 
-Dans le contexte d'un commerce séléctionné, le client peux voir une liste de produits disponible selon les contraintes et en reservé un ou plusieurs avec deux champs supplémentaires à remplir~:
+Dans le contexte d'un commerce séléctionné, le client peut voir une liste de produits disponibles selon les contraintes et en réserver un ou plusieurs avec deux champs supplémentaires à remplir~:
 
 \begin{itemize}
-	\item horaire : l'horaire de retrait du produit parmis ceux proposé par le commerçant, par exemple 12h et 18h~;
-	\item quantité : la quantité du produit reservé dans le cadre des limitations du commerçant pour son commerce et par client.
+	\item horaire : l'horaire de retrait du produit parmis ceux proposés par le commerçant, par exemple 12h et 18h~;
+	\item quantité : la quantité du produit reservée dans le cadre des limitations du commerçant pour son commerce et par client.
 \end{itemize} \
 
-Les produits nécessitant un temps minimum avant reservation ne peuvent pas être reservé tout comme pour les produits ayant atteind leur limitation (limitation du commerce ou par client) seront visible mais impossible à reserver.
+Les produits nécessitant un temps minimum avant réservation ne peuvent pas être reservés tout comme pour les produits ayant atteind leur limitation (limitation du commerce ou par client) seront visibles mais impossible à réserver.
 
 \subsubsection{Liste les réservations}
 
-Après plusieurs réservations le client à la possibilité d'afficher ses réservations, où chaque reservation porte les informations suivantes~:
+Après plusieurs réservations le client à la possibilité d'afficher ses réservations, où chaque réservation porte les informations suivantes~:
 
 \begin{itemize}
 	\item lien et nom du commerce~;
 	\item lien et nom du produit~;
 	\item quantité~;
 	\item horaire~;
-	\item état du produit : si le produit a déjà été récupéré celui ci indique «achévé».
+	\item état du produit : si le produit a déjà été récupéré celui ci indique «achevé».
 \end{itemize}
 
 
-\subsubsection{Supprimer une reservation}
+\subsubsection{Supprimer une réservation}
 
-Depuis la page listant les reservations, le client peut supprimer une reservation si le commerce le permet.
+Depuis la page listant les réservations, le client peut supprimer une réservation si le commerce le permet.
 
 \subsection{Vue commerçant}
 
@@ -89,60 +89,60 @@ Un commerçant doit pouvoir enregistrer son commerce avec les informations suiva
 \begin{itemize}
 	\item adresse~: l'adresse du commerce~;
 	\item nom~: le nom du commerce~;
-	\item type / description~: une description textuelle du commerce~;
+	\item type / déscription~: une déscription textuelle du commerce~;
 	\item contact~: un numéro de téléphone du commerce ainsi qu'une adresse email~;
-	\item mot de passe~: mot de passe pour acceder à la gestion des réservations.
+	\item mot de passe~: mot de passe pour accéder à la gestion des réservations.
 \end{itemize}
 
 Tout comme les clients, le commerçant se connecte en utilisant le nom de son commerce et son mot de passe.
 
 \subsubsection{Lister les produits}
 
-Un commerçant peut lister tout les produits déjà disponible dans son commerce.
+Un commerçant peut lister tout les produits déjà disponibles dans son commerce.
 
-\subsubsection{Lister les reservations quotidienne}
+\subsubsection{Lister les réservations quotidienne}
 
-Un commerçant doit pouvoir lister les réservations actuelles du jour même avec les information suivantes~:
+Un commerçant doit pouvoir lister les réservations actuelles du jour même avec les informations suivantes~:
 
 \begin{itemize}
 	\item nom du client~;
 	\item lien et nom du produit~;
 	\item quantité~;
 	\item horaire~;
-	\item état du produit~: si le produit a déjà été récupéré celui ci indique «achévé».
+	\item état du produit~: si le produit a déjà été récupéré celui ci indique «achevé».
 \end{itemize}
 
 \subsubsection{Ajouter des produits}
 
-Le commerçant peut enregistrer un produits avec les données suivantes~:
+Le commerçant peut enregistrer un produit avec les données suivantes~:
 
 \begin{itemize}
 	\item nom du produit~;
-	\item description du produit~;
+	\item déscription du produit~;
 	\item prix~;
 	\item horaires de retrait~;
-	\item quantité maximal pour le commerce à chaque horaire~: au dela d'un nombre de reservations cumulé égale, aucun client ne peux reserver ce produit~;
-	\item quantité maximal par client à chaque horaire~: au dela d'un nombre de reservation égale le client ne peut plus reserver ce produit~;
-	\item temps de reservation 
+	\item quantité maximal pour le commerce à chaque horaire~: au dela d'un nombre de réservations cumulé égale, aucun client ne peux réserver ce produit~;
+	\item quantité maximal par client à chaque horaire~: au dela d'un nombre de réservation égale le client ne peut plus réserver ce produit~;
+	\item temps de réservation 
 \end{itemize}
 
 
 \subsubsection{Supprimer des produits}
 
-Depuis la vue de tous le produits, un commerçant peux supprimer un des ses produits, il sera impossible à reserver mais les reservations actuelles seront conservées jusqu'à leur achèvement.
+Depuis la vue de tous le produits, un commerçant peux supprimer un des ses produits, il sera impossible à réserver mais les réservations actuelles seront conservées jusqu'à leur achèvement.
 
-\subsubsection{Marqué des reservations comme achevées}
+\subsubsection{Marqué des réservations comme achevées}
 
-Un commerçant peut depuis la liste des reservations actuelles marqué une reservation comme achevée lorsque celle ci à été donnée au client.
+Un commerçant peut depuis la liste des réservations actuelles marqué une réservation comme achevée lorsque celle ci à été donnée au client.
 
 \section{Modèle de donnée}
 
-Aprés une première analyse des actions, quatre types on été produits~:
+Aprés une première analyse des actions, quatre types ont été produits~:
 \begin{itemize}
 	\item Client~: un compte client~;
 	\item Commerce~: un compte d'un commerce~;
 	\item Produit~: les données d'un produit~;
-	\item Reservation~: les données de reservation~;
+	\item Reservation~: les données de réservation~;
 \end{itemize}
 
 Tous ces types sont représentés dans des base de données dans au moins une table différente.
@@ -165,7 +165,7 @@ Le type Commerce contient les champs suivants~:
 \begin{itemize}
 	\item id (integer)~;
 	\item nom (string)~;
-	\item description (string)~;
+	\item déscription (string)~;
 	\item contact téléphone (integer)~;
 	\item contact email (string)~;
 	\item mot de passe~;
@@ -181,14 +181,14 @@ Le type Produit contient les champs suivants~:
 	\item id (integer)~;
 	\item id commerce (integer)~;
 	\item nom (string)~;
-	\item description (string)~;
+	\item déscription (string)~;
 	\item prix (float)~;
 	\item horaires (array date)~;
 	\item quantité maximale cumulé (integer)~;
 	\item quantité maximale par client (integer).
 \end{itemize} \
 
-Les produits d'un même commerce sont enregistrés dans des tables différentes.
+Les produits des différents commerce sont enregistrés dans des tables différentes.
 
 \subsubsection{Reservation}
 
@@ -202,11 +202,11 @@ Le type Reservation contient les champs suivants~:
 	\item état.
 \end{itemize} \
 
-Les reservation sont toutes enregistrées dans la même table.
+Les réservation sont toutes enregistrées dans la même table.
 
 \section{Modèle d'interaction}
 
-Différentes fonctions peuvent être décrites entre ces types, ces fonctions permettent en générale la consulation, l'ajout et la suppression de produits et reservations comme exposé dans la description des actions précedement.
+Différentes fonctions peuvent être décrites entre ces types, ces fonctions permettent en générale la consulation, l'ajout et la suppression de produits et réservations comme exposé dans la déscription des actions précedement.
 
 Leur implémentation intérragit directement avec la base de données depuis le PHP.
 
@@ -221,16 +221,16 @@ Leur implémentation intérragit directement avec la base de données depuis le 
 \subsubsection{De Client vers Reservation}
 
 \begin{itemize}
-	\item $obtenirReservations(Client) \rightarrow [Reservation]$~: donne la liste des reservations pour un client~;
+	\item $obtenirReservations(Client) \rightarrow [Reservation]$~: donne la liste des réservations pour un client~;
 	\item $ajouterReservation(Client, Produit, horaire, quantite) \rightarrow bool$~: tente d'ajouter une réservation, si la quantité est supérieur aux contraintes, renvoi faux~;
-	\item $supprimerReservation(Client) \rightarrow bool$~: tente de supprimer une reservation, renvoi faux en cas de non permission.
+	\item $supprimerReservation(Client) \rightarrow bool$~: tente de supprimer une réservation, renvoi faux en cas de non permission.
 \end{itemize}
 
 \subsubsection{De Commerce vers Reservation}
 
 \begin{itemize}
-	\item $obtenirReservations(Commerce) \rightarrow [Reservation]$~: donne la liste des reservations actuelles pour un commerce~;
-	\item $validerReservation(Reservation)$~: change l'état d'une reservation en achevée.
+	\item $obtenirReservations(Commerce) \rightarrow [Reservation]$~: donne la liste des réservations actuelles pour un commerce~;
+	\item $validerReservation(Reservation)$~: change l'état d'une réservation en achevée.
 \end{itemize}
 
 
