@@ -24,7 +24,21 @@ echo "<p>commerces : </p>";
 $commerces = listerCommerces();
 afficherListe($commerces);
 
-$commerce = $commerces[0];
+echo "<p> connexion commerce (Tocroustine, chocolatine): </p>";
+
+$commerce = obtenirCommerceConnexion("Tocroustine", "chocolatine");
+
+afficherClass($commerce);
+
+echo "<p>clients : </p>";
+
+$clients = listerClients();
+afficherListe($clients);
+
+echo "<p> connexion client (Michel, root): </p>";
+
+$client = obtenirClientConnexion("Michel", "root");
+afficherClass($client);
 
 echo "<p>produits du premier commerce :</p>";
 
@@ -37,6 +51,7 @@ echo "<p>offres pour le premier produit :</p>";
 
 $offres = listerOffres($produit);
 afficherListe($offres);
+
 
 
 ?>

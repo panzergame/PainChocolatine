@@ -13,6 +13,10 @@ class Offre
 	public $horaire = "";
 }
 
+/** Renvoi une liste de toutes les offres d'un produit
+ * \param produit Le produit selectionné.
+ * \return liste de Offre.
+ */
 function listerOffres($produit)
 {
 	global $db;
@@ -31,7 +35,11 @@ function listerOffres($produit)
 	return $offres;
 }
 
-function obtenirOffre($idOffre)
+/** Renvoi l'offre correspondante à l'id.
+ * \param idCommerce Id de l'offre.
+ * \return Offre.
+ */
+function obtenirOffreId($idOffre)
 {
 	global $db;
 

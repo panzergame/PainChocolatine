@@ -11,6 +11,10 @@ class Produit
 	public $prix = 0.0;
 }
 
+/** Renvoi une liste de tous les produits d'un commerce
+ * \param commerce Le commerce selectionné.
+ * \return liste de Produit.
+ */
 function listerProduits($commerce)
 {
 	global $db;
@@ -34,7 +38,11 @@ function ajouterProduit($commerce, $produit)
 	
 }
 
-function obtenirProduit($idProduit)
+/** Renvoi le produit correspondant à l'id.
+ * \param idCommerce Id du produit.
+ * \return Produit.
+ */
+function obtenirProduitId($idProduit)
 {
 	global $db;
 
