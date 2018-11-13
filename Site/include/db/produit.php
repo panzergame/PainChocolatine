@@ -51,6 +51,13 @@ function obtenirProduitId($idProduit)
 	return $produit;
 }
 
+/** Ajout d'un produit.
+ * \param commerce Le commerce proposant ce produit.
+ * \param nom Le nom du produit.
+ * \param description La description du produit.
+ * \param prix Le prix du produit.
+ * \return Produit ou null.
+ */
 function ajouterProduit($commerce, $nom, $description, $prix)
 {
 	global $db;
@@ -60,9 +67,8 @@ function ajouterProduit($commerce, $nom, $description, $prix)
 	$c = "SELECT * FROM `produit` WHERE idCommerce = '$idCommerce' AND nom = '$nom'";
 	$r = mysqli_query($db, $c);
 
-	if ($r != false && mysqli_num_rows($r) == 1) {
+	if (ligneExiste($r)) {
 		// L'offre existe déjà.
-		echo "existe";
 		return null;
 	}
 

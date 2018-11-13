@@ -42,7 +42,8 @@ function obtenirCommerceConnexion($nom, $mdp)
 	$c = "SELECT * FROM `commerce` WHERE nom = '$nom' AND mdp = '$mdp'";
 	$r = mysqli_query($db, $c);
 
-	if ($r != false && mysqli_num_rows($r) == 1) {
+	if (ligneExiste($r)) {
+		// Creér une instance de client et la renvoyer.
 		$row = mysqli_fetch_assoc($r);
 		$commerce = new Commerce();
 		extraireLigne($row, $commerce);
@@ -86,7 +87,7 @@ function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email)
 	$c = "SELECT * FROM `commerce` WHERE nom = '$nom'";
 	$r = mysqli_query($db, $c);
 
-	if ($r != false && mysqli_num_rows($r) == 1) {
+	if (ligneExiste($r)) {
 		// Le commerce existe déjà.
 		return null;
 	}

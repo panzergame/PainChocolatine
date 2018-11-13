@@ -63,7 +63,7 @@ function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire
 	$c = "SELECT * FROM `offre` WHERE idCommerce = '$idCommerce' AND idProduit = '$idProduit' AND horaire = '$horaire'";
 	$r = mysqli_query($db, $c);
 
-	if ($r != false && mysqli_num_rows($r) == 1) {
+	if (ligneExiste($r)) {
 		// L'offre existe déjà.
 		return null;
 	}

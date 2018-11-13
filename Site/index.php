@@ -4,11 +4,16 @@ include_once "include/db/main.php";
 
 function afficherClass($inst)
 {
-	echo "<ul>";
-	foreach ($inst as $key => $value) {
-		echo "<li>$key : $value</li>";
+	if ($inst === null) {
+		echo "NULL";
 	}
-	echo "</ul>";
+	else {
+		echo "<ul>";
+		foreach ($inst as $key => $value) {
+			echo "<li>$key : $value</li>";
+		}
+		echo "</ul>";
+	}
 }
 
 function afficherListe($liste)
@@ -58,7 +63,7 @@ $produit = $produits[0];
 
 echo "<p>ajouter un produit :</p>";
 
-$newproduit = ajouterProduit($commerce, "Tarte", "", 5.0);
+$newproduit = ajouterProduit($commerces[1], "Tarte", "", 5.0);
 afficherClass($newproduit);
 
 echo "<p>offres pour le premier produit :</p>";
@@ -70,13 +75,13 @@ $offre = $offres[0];
 
 echo "<p>ajouter une offre :</p>";
 
-$newoffre = ajouterOffre($commerce, $produit, 25, 3, "12:00");
+$newoffre = ajouterOffre($newcommerce, $newproduit, 25, 3, "18:00");
 afficherClass($newoffre);
 
 echo "<p>ajout d'une reservation :</p>";
 
-// $reservation = ajouterReservation($client, $offre, 2);
-// afficherClass($reservation);
+$reservation = ajouterReservation($client, $offre, 2);
+afficherClass($reservation);
 
 echo "<p>reservation du client actuel : </p>";
 

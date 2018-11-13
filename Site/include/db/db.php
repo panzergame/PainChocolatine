@@ -26,18 +26,28 @@ function ecrireLigne($table, &$entite)
 {
 	global $db;
 
+	// Les champs de la ligne.
 	$champs = "";
+	// Les valeurs de la ligne.
 	$valeurs = "";
 
+	// Caractère séparateur.
 	$virgule = "";
+
+	// Inserer tous les champs.
 	foreach ($entite as $key => $value) {
 		$champs .= "$virgule `$key`";
-		if ($value == null) {
+
+		// Si null placer NULL.
+		if ($value === null) {
 			$valeurs .= "$virgule NULL";
 		}
+		// Sinon la valeur entre ''.
 		else {
 			$valeurs .= "$virgule '$value'";
 		}
+
+		// Les éléments suivant utilise une virgule.
 		$virgule = ",";
 	}
 
@@ -52,6 +62,16 @@ function ecrireLigne($table, &$entite)
 	$entite->id = $id;
 
 	return true;
+}
+
+/** Test si la reponse d'une requète de base de données est 1 ligne et non vide.
+ * \param r La valeur retour de la requète.
+ * \return true si la réponse et 1 ligne non vide.
+ */
+function ligneExiste($r)
+{
+	// Si la réponse est faux, la requète à échoué.
+	return ($r != false && mysqli_num_rows($r) == 1);
 }
 
 ?>
