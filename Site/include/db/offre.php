@@ -4,7 +4,7 @@ include_once "db.php";
 
 class Offre
 {
-	public $id;
+	public $id = null;
 	public $idProduit;
 	public $idCommerce;
 	public $qteDispo = 0;
@@ -53,9 +53,34 @@ function obtenirOffreId($idOffre)
 	return $offre;
 }
 
-function ajouterOffre($commerce, $offre)
+function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire)
 {
-	
+	global $db;
+
+	$idProduit = $produit->id;
+	$idCommerce = $commerce->id;
+
+	$c = "SELECT * FROM `offre` WHERE idCommerce = '$idCommerce' AND idProduit = '$idProduit' AND horaire = '$horaire'";
+	$r = mysqli_query($db, $c);
+
+	if ($r != false && mysqli_num_rows($r) == 1) {
+		// L'offre existe déjà.
+		return null;
+	}
+
+	$offre = new Offre();
+	$offre->idCommerce = $idCommerce;
+	$offre->idProduit = $idProduit;
+	$offre->qteDispo = $qteMaxCumul;
+	$offre->qteMaxCumul = $qteMaxCumul;
+	$offre->qteMaxClient = $qteMaxClient;
+	$offre->horaire = $horaire;
+
+	if (!ecrireLigne("offre", $offre)) {
+		return null;
+	}
+
+	return $offre;
 }
 
 ?>

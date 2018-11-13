@@ -42,7 +42,7 @@ function obtenirCommerceConnexion($nom, $mdp)
 	$c = "SELECT * FROM `commerce` WHERE nom = '$nom' AND mdp = '$mdp'";
 	$r = mysqli_query($db, $c);
 
-	if ($r != false && mysqli_num_rows($r)) {
+	if ($r != false && mysqli_num_rows($r) == 1) {
 		$row = mysqli_fetch_assoc($r);
 		$commerce = new Commerce();
 		extraireLigne($row, $commerce);
@@ -71,12 +71,39 @@ function obtenirCommerceId($idCommerce)
 }
 
 /** Ajouter un commerce.
- * \param commerce Commerce à ajouter.
+ * \param nom Mom du commerce.
+ * \param mdp Mot de passe du commerçant.
+ * \param description Description du commerce.
+ * \param type Type de commerce.
+ * \param tel Numéro de téléphone du commerce.
+ * \param email Email du commerce.
  * \return true si l'ajout est effectué, sinon false.
  */
-function ajouterCommerce($commerce)
+function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email)
 {
-	
+	global $db;
+
+	$c = "SELECT * FROM `commerce` WHERE nom = '$nom'";
+	$r = mysqli_query($db, $c);
+
+	if ($r != false && mysqli_num_rows($r) == 1) {
+		// Le commerce existe déjà.
+		return null;
+	}
+
+	$commerce = new Commerce();
+	$commerce->nom = $nom;
+	$commerce->mdp = $mdp;
+	$commerce->description = $description;
+	$commerce->type = $type;
+	$commerce->tel = $tel;
+	$commerce->email = $email;
+
+	if (!ecrireLigne("commerce", $commerce)) {
+		return null;
+	}
+
+	return $commerce;
 }
 
 ?>

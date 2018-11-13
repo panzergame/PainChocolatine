@@ -4,7 +4,7 @@ include_once "db.php";
 
 class Produit
 {
-	public $id;
+	public $id = null;
 	public $idCommerce;
 	public $nom = "";
 	public $description = "";
@@ -33,13 +33,8 @@ function listerProduits($commerce)
 	return $produits;
 }
 
-function ajouterProduit($commerce, $produit)
-{
-	
-}
-
 /** Renvoi le produit correspondant à l'id.
- * \param idCommerce Id du produit.
+ * \param idProduit Id du produit.
  * \return Produit.
  */
 function obtenirProduitId($idProduit)
@@ -52,6 +47,34 @@ function obtenirProduitId($idProduit)
 
 	$produit = new Produit();
 	extraireLigne($row, $produit);
+
+	return $produit;
+}
+
+function ajouterProduit($commerce, $nom, $description, $prix)
+{
+	global $db;
+
+	$idCommerce = $commerce->id;
+
+	$c = "SELECT * FROM `produit` WHERE idCommerce = '$idCommerce' AND nom = '$nom'";
+	$r = mysqli_query($db, $c);
+
+	if ($r != false && mysqli_num_rows($r) == 1) {
+		// L'offre existe déjà.
+		echo "existe";
+		return null;
+	}
+
+	$produit = new Produit();
+	$produit->idCommerce = $idCommerce;
+	$produit->nom = $nom;
+	$produit->description = $description;
+	$produit->prix = $prix;
+
+	if (!ecrireLigne("produit", $produit)) {
+		return null;
+	}
 
 	return $produit;
 }

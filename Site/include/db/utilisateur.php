@@ -4,7 +4,7 @@ class Utilisateur
 {
 	public $nom = "";
 	public $mdp = "";
-	public $id;
+	public $id = null;
 	public $email = "";
 }
 
