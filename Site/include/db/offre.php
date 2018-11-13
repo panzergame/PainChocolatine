@@ -60,7 +60,7 @@ function obtenirOffreId($idOffre)
  * \param qteMaxCumul Quantité de cette offre.
  * \param qteMaxClient Quantité maximum qu'un client peut reservé.
  * \param horaire Horaire à laquelle le client peut réserver l'offre.
- * \return La réservation.
+ * \return L'offre.
  */
 
 function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire)
