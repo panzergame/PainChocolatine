@@ -53,6 +53,16 @@ function obtenirOffreId($idOffre)
 	return $offre;
 }
 
+
+/** Ajoute une Offre Pour un commerce.
+ * \param commerce Le commerce qui propose l'offre.
+ * \param produit Le produit proposé dans l'offre.
+ * \param qteMaxCumul Quantité de cette offre.
+ * \param qteMaxClient Quantité maximum qu'un client peut reservé.
+ * \param horaire Horaire à laquelle le client pour réserver l'offre.
+ * \return La réservation.
+ */
+
 function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire)
 {
 	global $db;

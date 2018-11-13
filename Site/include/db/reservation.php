@@ -11,6 +11,10 @@ class Reservation
 	public $qte = 0;
 }
 
+/** Renvoie une liste de toutes les reservations pour un commerce.
+ * \param commerce Le commerce dont on veut afficher les réservations.
+ * \return reservations Les réservations du commerces.
+*/
 function listerReservationsCommerce($commerce)
 {
 	global $db;
@@ -29,6 +33,11 @@ function listerReservationsCommerce($commerce)
 	return $reservations;
 }
 
+
+/** Renvoi une liste de toutes les réservations d'un client.
+ * \param client Le client dont les réservations seront listées.
+ * \return les reservations du client.
+ */
 function listerReservationsClient($client)
 {
 	global $db;
@@ -47,6 +56,10 @@ function listerReservationsClient($client)
 	return $reservations;
 }
 
+/** Renvoi une liste des reservations pour une Offre.
+ * \param offre Une offre proposé par un commerce.
+ * \return liste des reservations pour l'offre.
+ */
 function listerReservationsOffre($offre)
 {
 	global $db;
@@ -65,6 +78,13 @@ function listerReservationsOffre($offre)
 	return $reservations;
 }
 
+
+/** Ajoute une reservation pour une offre.
+ * \param client Le client qui réserve.
+ * \param offre L'offre que le client a réservé.
+ * \param qte Quantité de l'offre que le client a réservé.
+ * \return La réservation.
+ */
 function ajouterReservation($client, $offre, $qte)
 {
 	$reservation = new Reservation();
