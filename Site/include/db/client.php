@@ -55,7 +55,7 @@ function obtenirClientConnexion($nom, $mdp)
  * \param nom Nom du client.
  * \param mdp Not de passe du client.
  * \param email Email du client.
- * \return true si l'ajout est effectué, sinon false.
+ * \return Le client si l'ajout est effectué, sinon null si le client existe déjà.
  */
 function ajouterClient($nom, $mdp, $email)
 {
