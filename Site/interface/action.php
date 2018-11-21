@@ -6,6 +6,7 @@ include_once "include/get.php";
 session_start();
 
 $action = $_GET["action"];
+$_SESSION["commerceConnecte"] = listerCommerces()[0];
 
 // Par défaut lister les commerces.
 if (!isset($action)) {
@@ -21,6 +22,12 @@ switch ($action) {
 		break;
 	case "listerOffre":
 		include_once "commun/listerOffres.php";
+		break;
+	case "ajouterProduit":
+		include_once "commerce/ajouterProduit.php";
+		break;
+	case "ajouterOffre":
+		include_once "commerce/ajouterOffre.php";
 		break;
 }
 

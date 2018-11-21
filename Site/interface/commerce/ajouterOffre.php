@@ -1,6 +1,4 @@
 <?php
-include_once "include/db.php";
-session_start();
 
 $commerce = $_SESSION["commerceConnecte"];
 
@@ -13,41 +11,48 @@ $commerce = $_SESSION["commerceConnecte"];
 
 <h2>Ajouter une Offre</h2>
 
-<form method='post' action='action/offres.php'>
+<form method='post' action='interface/commerce/action/offres.php'>
 
 	<p>
 		Produit:
-	<select name="produit">
+		<select name="id">
 
-		<?php
-		//On récupère le nom et l'id des produits appartenant au commerce actuellement connecté.
-	  $produits = listerProduits($commerce);
+<?php
+	$produit = $_SESSION["produit"];
+	$id_default = 0;
+	if (isset($produit) and $produit !== null) {
+		$id_default = $produit->id;
+	}
 
-    foreach ($produits as $produit) {
-      $nom = $produit -> nom;
-      $id = $produit -> id;
+	//On récupère le nom et l'id des produits appartenant au commerce actuellement connecté.
+	$produits = listerProduits($commerce);
 
-		echo "<option value ='$id'>$nom</option>";
+	foreach ($produits as $produit) {
+		$nom = $produit->nom;
+		$id = $produit->id;
+		if ($id == $id_default) {
+			echo "<option value ='$id' selected='selected'>$nom</option>";
+		}
+		else {
+			echo "<option value ='$id'>$nom</option>";
+		}
     }
-		?>
+?>
 
-	</select>
+		</select>
 	</p>
 
 	<p>
-
 		<label for='qteMaxCumul'> Quantité Maximum</label>
 		<input type="number" name="qteMaxCumul" min="1" />
 	</p>
 
 	<p>
-
 		<label for='qteMaxClient'>Quantité Maximum par client</label>
 		<input type="number" name="qteMaxClient" min="1"/>
 	</p>
 
 	<p>
-
 		<label for='horaire'>Horaire</label>
 		<input type="time" name="horaire"/>
 	</p>
