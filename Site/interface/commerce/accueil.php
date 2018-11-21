@@ -1,3 +1,4 @@
 <?php
-	header("Location:listerClient.php");
+	$url = getUrl("../../index.php", array("action" => "listerReservation"));
+	Header("Location: $url");
 ?>

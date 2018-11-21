@@ -5,6 +5,8 @@ $produit = $_SESSION["produit"];
 $offres = listerOffres($produit);
 $nom = $produit->nom;
 
+$client_connecte = isset($_SESSION["clientConnecte"]);
+
 echo "<h1>Liste d'offres de $nom</h1>";
 
 echo "<table>";
@@ -14,6 +16,12 @@ echo "<td>Qantité disponible</td>";
 echo "<td>Quantité maximal</td>";
 echo "<td>Quantité maximal par client</td>";
 echo "<td>Horaire</td>";
+
+if ($client_connecte) {
+	// Ajout de la colone de reservation.
+	echo "<td></td>";
+}
+
 echo "</tr>";
 
 foreach ($offres as $offre) {
@@ -28,19 +36,16 @@ foreach ($offres as $offre) {
 	echo "<td>$qteMaxCumul</td>";
 	echo "<td>$qteMaxClient</td>";
 	echo "<td>$horaire</td>";
-	/*echo "<td>";
-	echo "<form action=\"interface/commun/action/produit.php\" method=\"post\">";
-		echo "<button type=\"submit\" name=\"id\" value=\"$id\">Voir les offres</button>";
-		echo "<input type=\"hidden\" name=\"action\" value=\"listerOffre\"/>";
-	echo "</form>"; // TODO gregory
-	echo "</td>";*/
-    if(isset($_SESSION["clientConnecte"])){
-		    echo "<form action=\"interface/commun/action/offre.php\"    method=\"post\">";
-			    echo "<button type=\"submit\" name=\"id\" value=\"$id\">Reserver</button>";
-			    echo "<input type=\"hidden\" name=\"action\" value=\"ajouterReservation\"/>";
-		    echo "</form>";
-	    }
-	
+
+    if ($client_connecte) {
+		echo "<td>";
+		echo "<form action=\"interface/commun/action/offre.php\"    method=\"post\">";
+			echo "<button type=\"submit\" name=\"id\" value=\"$id\">Reserver</button>";
+			echo "<input type=\"hidden\" name=\"action\" value=\"ajouterReservation\"/>";
+		echo "</form>";
+		echo "</td>";
+	}
+
 	echo "</tr>";
 }
 

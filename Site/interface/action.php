@@ -7,6 +7,7 @@ session_start();
 
 $action = $_GET["action"];
 $_SESSION["commerceConnecte"] = listerCommerces()[0];
+$_SESSION["clientConnecte"] = listerClients()[0];
 
 // Par défaut lister les commerces.
 if (!isset($action)) {
@@ -28,6 +29,21 @@ switch ($action) {
 		break;
 	case "ajouterOffre":
 		include_once "commerce/ajouterOffre.php";
+		break;
+	case "ajouterReservation":
+		include_once "client/ajouterReservation.php";
+		break;
+	case "listerClient":
+		include_once "commerce/listerClients.php";
+		break;
+	case "connexion":
+		include_once "commun/connexion.php";
+		break;
+	case "connexionClient":
+		include_once "client/connexion.php";
+		break;
+	case "connexionCommerce":
+		include_once "commerce/connexion.php";
 		break;
 }
 

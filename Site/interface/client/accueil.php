@@ -1,3 +1,4 @@
 <?php
-	header("Location:../commum/listerCommerces.php");
+	$url = getUrl("../../index.php", array("action" => "listerReservation"));
+	Header("Location: $url");
 ?>
