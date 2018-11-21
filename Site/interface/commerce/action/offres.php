@@ -4,6 +4,7 @@ include_once "../../../include/db/offre.php";
 include_once "../../../include/db/commerce.php";
 include_once "../../../include/db/produit.php";
 include_once "../../../include/get.php";
+include_once "../../../include/error.php";
 
 session_start();
 
@@ -18,38 +19,10 @@ if ($commerce == null) {
 	Header("Location: $url_connexion");
 }
 else {
-  // on vérifie si les champs sont valides et remplis.
-  $id_valid = false;
-  $qteMaxCumul_valid = false;
-  $qteMaxClient_valid = false;
-  $horaire_valid = false;
-
-	if (isset($_POST["id"]) and !empty($_POST["id"])) {
-      $id = strip_tags($_POST["id"]);
-      $id_valid = true;
-	}
-
-  if (isset($_POST["qteMaxCumul"]) and !empty($_POST["qteMaxCumul"])) {
-      $qteMaxCumul = $_POST["qteMaxCumul"];
-      $qteMaxCumul_valid = true;
-  }
-
-
-  if (isset($_POST["qteMaxClient"]) and !empty($_POST["qteMaxClient"])) {
-    $qteMaxClient = $_POST['qteMaxClient'];
-    $qteMaxClient_valid = true;
-  }
-
-
-  if (isset($_POST["horaire"]) and !empty($_POST["horaire"])){
-      $horaire = strip_tags($_POST["horaire"]);
-      $horaire_valid = true;
-     }
-	
-	echo $id;
-	echo $qteMaxCumul;
-	echo $qteMaxClient;
-	echo $horaire;
+	valeurValidePost("id");
+	valeurValidePost("qteMaxCumul");
+	valeurValidePost("qteMaxClient");
+	valeurValidePost("horaire");
 
 	if ($id_valid and $qteMaxCumul_valid and $qteMaxClient_valid and $horaire_valid) {
 		$produit = obtenirProduitId($id);
@@ -68,6 +41,6 @@ else {
 		}
 	}
 	else{
-// 		Header("Location: $$url_ajouter_offre");
+		Header("Location: $$url_ajouter_offre");
 	}
 }

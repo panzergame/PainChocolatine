@@ -3,6 +3,7 @@
 include_once "../../../include/db/commerce.php";
 include_once "../../../include/db/produit.php";
 include_once "../../../include/get.php";
+include_once "../../../include/error.php";
 
 session_start();
 
@@ -17,25 +18,10 @@ if ($commerce === null) {
 	Header("Location: $url_connexion");
 }
 else {
-  // On vérifie si les champs sont valides ou remplis .
-    $nom_valid = false;
-    $description_valid = false;
-    $prix_valid = false;
-
-    if (isset($_POST["nom"]) and !empty($_POST["nom"])){
-      $nom = strip_tags($_POST["nom"]);
-      $nom_valid = true;
-    }
-
-    if (isset($_POST["description"]) and !empty($_POST["description"])){
-        $description = strip_tags($_POST["description"]);
-        $description_valid = true;
-    }
-
-    if (isset($_POST["prix"]) and !empty($_POST["prix"])){
-        $prix = $_POST["prix"];
-        $prix_valid = true;
-    }
+	// On vérifie si les champs sont valides ou remplis .
+	valeurValidePost("nom");
+	valeurValidePost("description");
+	valeurValidePost("prix");
 
     //On ajoute le produit à la bd.
     if ($prix_valid and $description_valid and $nom_valid){
