@@ -103,18 +103,18 @@ function supprimerOffre($offre)
 {
 	global $db;
 
-        $id =  $offre -> id;
-	    $c = "DELET * FROM `client` WHERE id = '$id'";
-	    $r = mysqli_query($db, $c);
+    $id =  $offre -> id;
+	$c = "DELET * FROM `client` WHERE id = '$id'";
+	$r = mysqli_query($db, $c);
 
 }
 
 function supprimerOffreProduit($offre, $produit) 
 {
     global $db;
-        $idProduit = $produit -> id;
-        $c = "";
-        $r = mysqli_query($db,$c);
+    $idProduit = $produit -> id;
+    $c = "DELET * FROM `offre` WHERE idProduit = '$idProduit'";
+    $r = mysqli_query($db,$c);
         
 }
 ?>
