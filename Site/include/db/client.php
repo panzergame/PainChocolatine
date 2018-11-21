@@ -102,4 +102,25 @@ function obtenirClientId($idClient)
 	return $client;
 
 }
+
+
+/** Supprime le client si le bon nom et mot de passe est entré
+ * \param nom  Nom du client
+ * \param mdp  Mot de passe du client
+ * \return vrai si le Client à été supprimé faux sinon.
+ */
+function supprimerClient($nom, $mdp)
+{
+	global $db;
+
+    if (obtenirClientConnexion($nom , $mdp) !== null) {
+	    $c = "DELET * FROM `client` WHERE nom = '$nom'";
+	    $r = mysqli_query($db, $c);
+        return true;
+    }
+    else {
+		return false;
+	}
+
+}
 ?>

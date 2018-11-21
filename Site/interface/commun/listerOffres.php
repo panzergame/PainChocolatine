@@ -34,6 +34,12 @@ foreach ($offres as $offre) {
 		echo "<input type=\"hidden\" name=\"action\" value=\"listerOffre\"/>";
 	echo "</form>"; // TODO gregory
 	echo "</td>";*/
+    if(isset($_SESSION["clientConnecte"])){
+		    echo "<form action=\"interface/commun/action/offre.php\"    method=\"post\">";
+			    echo "<button type=\"submit\" name=\"id\" value=\"$id\">Reserver</button>";
+			    echo "<input type=\"hidden\" name=\"action\" value=\"ajouterReservation\"/>";
+		    echo "</form>";
+	    }
 	
 	echo "</tr>";
 }

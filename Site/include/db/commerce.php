@@ -107,4 +107,24 @@ function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email)
 	return $commerce;
 }
 
+/** Supprime le commerce si le bon nom et mot de passe est entré
+ * \param nom  Nom du commerce
+ * \param mdp  Mot de passe du commerce
+ * \return vrai si le commerce à été supprimer, faux sinon.
+ */
+function supprimerCommerce($nom, $mdp)
+{
+	global $db;
+
+    if (obtenirCommerceConnexion($nom , $mdp) !== null) {
+	    $c = "DELET * FROM `commerce` WHERE nom = '$nom'";
+	    $r = mysqli_query($db, $c);
+        return true;
+    }
+    else {
+		return false;
+	}
+
+}
+
 ?>

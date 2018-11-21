@@ -13,6 +13,7 @@ class Offre
 	public $horaire = "";
 }
 
+
 /** Renvoi une liste de toutes les offres d'un produit
  * \param produit Le produit selectionné.
  * \return liste de Offre.
@@ -93,4 +94,27 @@ function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire
 	return $offre;
 }
 
+
+/** Supprime l'Offre , l'offre existe toujours.
+ * \param nom  Nom du client
+ * \param mdp  Mot de passe du client
+ */
+function supprimerOffre($offre)
+{
+	global $db;
+
+        $id =  $offre -> id;
+	    $c = "DELET * FROM `client` WHERE id = '$id'";
+	    $r = mysqli_query($db, $c);
+
+}
+
+function supprimerOffreProduit($offre, $produit) 
+{
+    global $db;
+        $idProduit = $produit -> id;
+        $c = "";
+        $r = mysqli_query($db,$c);
+        
+}
 ?>
