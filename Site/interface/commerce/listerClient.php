@@ -6,8 +6,11 @@
 		$reservations = listerReservationCommerce($commerce);
 		echo "<table>";
 		echo"<tr>
-					<th>Réservations</th>
+					<th>Nom du produit</th>
 					<th>Nom du client</th>
+					<th>Horaire</th>
+					<th>Quantité du produit</th>
+					<th>Prix total</th>
 			</tr>";
 		foreach ($reservations as $reservation) {
 			echo"<tr>";
