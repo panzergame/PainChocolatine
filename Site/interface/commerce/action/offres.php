@@ -19,9 +19,9 @@ if ($commerce == null) {
 	Header("Location: $url_connexion");
 }
 else {
-	valeurValidePost("id");
-	valeurValidePost("qteMaxCumul");
-	valeurValidePost("qteMaxClient");
+	valeurValideNumericPost("id");
+	valeurValideNumericPost("qteMaxCumul");
+	valeurValideNumericPost("qteMaxClient");
 	valeurValidePost("horaire");
 
 	if ($id_valid and $qteMaxCumul_valid and $qteMaxClient_valid and $horaire_valid) {

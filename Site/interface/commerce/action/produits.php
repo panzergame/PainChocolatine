@@ -21,7 +21,7 @@ else {
 	// On vérifie si les champs sont valides ou remplis .
 	valeurValidePost("nom");
 	valeurValidePost("description");
-	valeurValidePost("prix");
+	valeurValideNumericPost("prix");
 
     //On ajoute le produit à la bd.
     if ($prix_valid and $description_valid and $nom_valid){
