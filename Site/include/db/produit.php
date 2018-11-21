@@ -11,6 +11,7 @@ class Produit
 	public $prix = 0.0;
 }
 
+
 /** Renvoi une liste de tous les produits d'un commerce
  * \param commerce Le commerce selectionné.
  * \return liste de Produit.
@@ -85,4 +86,15 @@ function ajouterProduit($commerce, $nom, $description, $prix)
 	return $produit;
 }
 
+
+/**Supprime Le produit selectionné
+ * \param produit  Produit à supprimer, Le produit existe toujours.
+ */
+function supprimerProduit($produit)
+{
+    global $db;
+    $id = $produit -> id;
+    $c = "DELETE * FROM `produit` WHERE id='$id'";
+    $r = mysqli_query($db,$c);
+}
 ?>

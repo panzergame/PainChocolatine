@@ -100,4 +100,29 @@ function ajouterReservation($client, $offre, $qte)
 	return $reservation;
 }
 
+
+/**Supprime la reservation selectionnée
+ * \param reservation La reservation à supprimer, La reservation existe toujours.
+ */
+
+function supprimerReservation($reservation)
+{
+    global $db;
+    $id = $reservation -> id;
+    $c = "DELETE * FROM `reservation` WHERE id= '$id'";
+    $r = mysqli_query($db,$c);
+}
+
+
+/** Supprime les Reservations correspondant à une offre.
+ *\param offre  Offre dont on veut supprimer les réservations. L'offre existe toujours.
+ */
+function supprimerReservationOffre($offre)
+{
+    global $db;
+    $idOffre = $offre -> id;
+    $c = "DELETE * FROM `reservation` WHERE idOffre = '$idOffre'";
+    $r = mysqli_query($db,$c);
+}
+
 ?>

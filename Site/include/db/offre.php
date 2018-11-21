@@ -95,25 +95,29 @@ function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire
 }
 
 
-/** Supprime l'Offre , l'offre existe toujours.
- * \param nom  Nom du client
- * \param mdp  Mot de passe du client
+/** Supprime l'Offre.
+ * \param offre Offre à supprimer, l'offre existe toujours.
  */
 function supprimerOffre($offre)
 {
 	global $db;
 
     $id =  $offre -> id;
-	$c = "DELET * FROM `client` WHERE id = '$id'";
+	$c = "DELETE * FROM `offre` WHERE id = '$id'";
 	$r = mysqli_query($db, $c);
 
 }
 
-function supprimerOffreProduit($offre, $produit) 
+
+/**Supprime toutes les Offres correspondant à un produit.
+ * \param produit  Produit dont on veut supprimer les offres. Le produit existe toujours.
+ */
+
+function supprimerOffreProduit($produit) 
 {
     global $db;
     $idProduit = $produit -> id;
-    $c = "DELET * FROM `offre` WHERE idProduit = '$idProduit'";
+    $c = "DELETE * FROM `offre` WHERE idProduit = '$idProduit'";
     $r = mysqli_query($db,$c);
         
 }
