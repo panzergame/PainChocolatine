@@ -39,12 +39,6 @@ switch ($action) {
 	case "connexion":
 		include_once "commun/connexion.php";
 		break;
-	case "connexionClient":
-		include_once "client/connexion.php";
-		break;
-	case "connexionCommerce":
-		include_once "commerce/connexion.php";
-		break;
 }
 
 ?>

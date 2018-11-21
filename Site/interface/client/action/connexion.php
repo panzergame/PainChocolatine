@@ -1,24 +1,32 @@
 <?php
 
+include_once "../../../include/db/client.php";
+include_once "../../../include/get.php";
+include_once "../../../include/error.php";
+
 session_start();
 
-$error = false;
-$nom = $_POST["nom"]; 
-$mdp = $_POST["mdp"];
+$url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
+$url_lister_commerce = getUrl("../../../index.php", array("action" => "listerCommerce"));
 
-$connexion = obtenirClientConnexion($nom,$mdp);
-if($connexion = null){
-	$erreur = True;
-}
+valeurValidePost("nom");
+valeurValidePost("mdp");
 
-if ($error){
-	$_SESSION["error"]["nom"] = $_POST["nom"];
-	header("Location:../../commun/connexion.php");
+if ($nom_valid and $mdp_valid) {
+	$client = obtenirClientConnexion($nom, $mdp);
+
+	if($client) {
+		$_SESSION["clientConnecte"] = $client;
+		Header("Location: $url_lister_commerce");
+	}
+	else {
+		// Connexion échouée.
+		Header("Location: $url_connexion");
+	}
 }
-else{
-	unset($_SESSION["error"]);
-	$_SESSION["clientConnecte"] = $connexion;
-	header("Location:../acceuil.php");
+else {
+	// Champs invalides.
+	Header("Location: $url_connexion");
 }
 
 ?>
