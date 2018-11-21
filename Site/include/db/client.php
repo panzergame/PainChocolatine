@@ -28,6 +28,7 @@ function listerClients()
 	return $clients;
 }
 
+
 /** Renvoi un client ou null selon les informations de connexion.
  * \param nom Nome du client.
  * \param mdp Mot de passe du client.
@@ -81,4 +82,24 @@ function ajouterClient($nom, $mdp, $email)
 	return $client;
 }
 
+
+/** Renvoi le client correspondant à l'id.
+ * \param idClient  Id du Client
+ * \return Client.
+ */
+
+function obtenirClientId($idClient)
+{
+    global $db;
+
+	$c = "SELECT * FROM `client` WHERE id = $idClient";
+	$r = mysqli_query($db, $c);
+	$row = mysqli_fetch_assoc($r);
+
+	$client = new Client();
+	extraireLigne($row, $client);
+
+	return $client;
+
+}
 ?>
