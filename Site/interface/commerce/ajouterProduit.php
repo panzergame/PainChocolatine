@@ -2,7 +2,7 @@
 
 <h2>Ajouter un Produit</h2>
 
-<form method='post' action='action/produit.php'>
+<form method='post' action='interface/commerce/action/produits.php'>
 	<p>
 		<label for='nom'>Nom</label>
 		<input type="text" name="nom"/>
@@ -13,16 +13,15 @@
 		<input type="text" name="description"/>
 	</p>
 
-  <p>
+	<p>
 		<label for='prix'>Prix</label>
-		<input type="number" step="0.0" name="prix" min ="0.0"/>
+		<input type="number" step="0.01" name="prix" min ="0.0"/>
 	</p>
 
 	<p>
 		<label for='action'></label>
 		<input type="submit" name="action" value="OK"/>
 	</p>
-
 </form>
 
 

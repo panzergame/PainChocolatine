@@ -3,8 +3,9 @@
 $produit = $_SESSION["produit"];
 // Toutes les offres du produit précedement selectionné.
 $offres = listerOffres($produit);
+$nom = $produit->nom;
 
-echo "<h1>Liste d'offres</h1>";
+echo "<h1>Liste d'offres de $nom</h1>";
 
 echo "<table>";
 
