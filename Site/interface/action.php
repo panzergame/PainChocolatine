@@ -37,6 +37,9 @@ switch ($action) {
 	case "deconnexion":
 		include_once "commun/deconnexion.php";
 		break;
+	case "inscription":
+		include_once "commun/inscription.php";
+		break;
 }
 
 ?>

@@ -18,6 +18,7 @@ session_start();
 		<?php
 			$url_connexion = getUrl("index.php", array("action" => "connexion"));
 			$url_deconnexion = getUrl("index.php", array("action" => "deconnexion"));
+			$url_inscription = getUrl("index.php", array("action" => "inscription"));
 
 			if (isset($_SESSION["clientConnecte"])) {
 				$client = $_SESSION["clientConnecte"];
@@ -33,6 +34,7 @@ session_start();
 			}
 			else {
 				echo "<a href=\"$url_connexion\">Se connecter</a>";
+				echo "<a href=\"$url_inscription\">S'inscrire</a>";
 			}
 		?>
 		</p>
