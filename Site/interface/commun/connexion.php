@@ -1,8 +1,3 @@
-<?php
-$url_connexion_client = getUrl("index.php", array("action" => "connexionClient"));
-$url_connexion_commerce = getUrl("index.php", array("action" => "connexionCommerce"));
-?>
-
 <form method='post' action='interface/commun/action/connexion.php'>
 	<p>
 		<label for='nom'>Nom</label>

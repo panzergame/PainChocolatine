@@ -1,17 +1,12 @@
 <?php
 
-include_once "include/db/main.php";
 include_once "include/get.php";
 
-session_start();
-
-$action = $_GET["action"];
-$_SESSION["commerceConnecte"] = listerCommerces()[0];
-$_SESSION["clientConnecte"] = listerClients()[0];
+$action = "listerCommerce";
 
 // Par défaut lister les commerces.
-if (!isset($action)) {
-	$action = "listerCommerce";
+if (isset($_GET["action"])) {
+	$action = $_GET["action"];
 }
 
 switch ($action) {
@@ -38,6 +33,9 @@ switch ($action) {
 		break;
 	case "connexion":
 		include_once "commun/connexion.php";
+		break;
+	case "deconnexion":
+		include_once "commun/deconnexion.php";
 		break;
 }
 
