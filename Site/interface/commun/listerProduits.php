@@ -1,6 +1,6 @@
 <?php
 
-$commerce = $_SESSION["commerce"];
+$commerce = commerceSelectionne();
 // Toutes les produits du commerce précedement selectionné.
 $produits = listerProduits($commerce);
 
@@ -22,7 +22,7 @@ foreach ($produits as $produit) {
 	echo "<td>$prix</td>";
 	echo "<td>";
 	/* Formulaire pour lister les offres. Celui ci appelle action/produit.php
-	 * qui se charge de placer dans _SESSION["produit"] le produit de la ligne
+	 * qui se charge de selectionner le produit de la ligne
 	 * actuelle, ensuite ce même fichier redirige vers index.php avec action=listerOffre.
 	 */
 	echo "<form action=\"interface/commun/action/produit.php\" method=\"post\">";

@@ -1,10 +1,8 @@
 <?php
 
-include_once "../../../include/db/client.php";
+include_once "../../../include/db/sessions.php";
 include_once "../../../include/get.php";
 include_once "../../../include/error.php";
-
-session_start();
 
 $url_inscription = getUrl("../../../index.php", array("action" => "inscription"));
 $url_lister_commerce = getUrl("../../../index.php", array("action" => "listerCommerce"));
@@ -17,7 +15,7 @@ if ($nom_valid and $mdp_valid and $email_valid) {
 	$client = ajouterClient($nom, $mdp, $email);
 
 	if($client) {
-		$_SESSION["clientConnecte"] = $client;
+		connecterClient($client);
 		Header("Location: $url_lister_commerce");
 	}
 	else {

@@ -1,13 +1,10 @@
 <?php
 
-include_once "../../../include/db/commerce.php";
-include_once "../../../include/db/produit.php";
+include_once "../../../include/db/session.php";
 include_once "../../../include/get.php";
 include_once "../../../include/error.php";
 
-session_start();
-
-$commerce = $_SESSION["commerceConnecte"];
+$commerce = commerceConnecte();
 
 $url_ajout_produit = getUrl("../../../index.php", array("action" => "ajouterProduit"));
 $url_connexion = getUrl("../../../index.php", array("action" => "inscriptionCommerce"));
@@ -27,7 +24,7 @@ else {
     if ($prix_valid and $description_valid and $nom_valid){
 		$produit = ajouterProduit($commerce, $nom, $description, $prix);
 		if ($produit !== null) {
-			$_SESSION["produit"] = $produit;
+			selectionnerProduit($produit);
 			Header("Location: $url_ajouter_offre");
 		}
 		else {

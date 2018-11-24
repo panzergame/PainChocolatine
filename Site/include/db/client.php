@@ -120,6 +120,5 @@ function supprimerClient($nom, $mdp)
     else {
 		return false;
 	}
-
 }
 ?>

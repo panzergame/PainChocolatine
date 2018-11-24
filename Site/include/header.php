@@ -1,8 +1,6 @@
 <?php
 include_once "include/db/main.php";
 include_once "include/get.php";
-
-session_start();
 ?>
 
 <!DOCTYPE html/>
@@ -20,15 +18,16 @@ session_start();
 			$url_deconnexion = getUrl("index.php", array("action" => "deconnexion"));
 			$url_inscription = getUrl("index.php", array("action" => "inscription"));
 
-			if (isset($_SESSION["clientConnecte"])) {
-				$client = $_SESSION["clientConnecte"];
+			$client = clientConnecte();
+			$commerce = commerceConnecte();
+
+			if ($client !== null) {
 				$nom = $client->nom;
 				echo "Connecté en tant que client ($nom)";
 				echo "<a href=\"$url_deconnexion\">Se déconnecter</a>";
 			}
-			else if (isset($_SESSION["commerceConnecte"])) {
-				$client = $_SESSION["commerceConnecte"];
-				$nom = $client->nom;
+			else if ($commerce !== null) {
+				$nom = $commerce->nom;
 				echo "Connecté en tant que commerçant ($nom)";
 				echo "<a href=\"$url_deconnexion\">Se déconnecter</a>";
 			}

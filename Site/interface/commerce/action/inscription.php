@@ -1,10 +1,8 @@
 <?php
 
-include_once "../../../include/db/commerce.php";
+include_once "../../../include/db/session.php";
 include_once "../../../include/get.php";
 include_once "../../../include/error.php";
-
-session_start();
 
 $url_inscription = getUrl("../../../index.php", array("action" => "inscription"));
 $url_lister_clients = getUrl("../../../index.php", array("action" => "listerClient"));
@@ -20,7 +18,7 @@ if ($nom_valid and $mdp_valid and $email_valid and $tel_valid and $type_valid an
 	$commerce = ajouterCommerce($nom, $mdp, $description, $type, $tel, $email);
 
 	if($commerce) {
-		$_SESSION["commerceConnecte"] = $commerce;
+		connecterCommerce($commerce);
 		Header("Location: $url_lister_clients");
 	}
 	else {

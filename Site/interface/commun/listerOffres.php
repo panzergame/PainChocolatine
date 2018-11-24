@@ -1,11 +1,11 @@
 <?php
 
-$produit = $_SESSION["produit"];
+$produit = produitSelectionne();
 // Toutes les offres du produit précedement selectionné.
 $offres = listerOffres($produit);
 $nom = $produit->nom;
 
-$client_connecte = isset($_SESSION["clientConnecte"]);
+$client_connecte = (clientConnecte() !== null);
 
 echo "<h1>Liste d'offres de $nom</h1>";
 

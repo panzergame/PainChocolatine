@@ -21,7 +21,7 @@ foreach ($commerces as $commerce) {
 	echo "<td>$type</td>";
 	echo "<td>";
 	/* Formulaire pour lister les produits. Celui ci appelle action/commerce.php
-	 * qui se charge de placer dans _SESSION["commerce"] le commerce de la ligne
+	 * qui se charge de selectionner le commerce de la ligne
 	 * actuelle, ensuite ce même fichier redirige vers index.php avec action=listerProduit.
 	 */
 	echo "<form action=\"interface/commun/action/commerce.php\" method=\"post\">";

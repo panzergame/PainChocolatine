@@ -1,6 +1,6 @@
 <?php
 
-$commerce = $_SESSION["commerceConnecte"];
+$commerce = commerceConnecte();
 
 if(isset($commerce)) {
 	$reservations = listerReservationsCommerce($commerce);
@@ -35,7 +35,7 @@ if(isset($commerce)) {
 	echo "</table>";
 }
 else{
-	echo "<p>Veuillez vous connecter</p>";
+	echo "<p>Veuillez vous connecter</p>"; // TODO
 }
 
 ?>

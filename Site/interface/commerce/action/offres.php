@@ -1,14 +1,10 @@
 <?php
 
-include_once "../../../include/db/offre.php";
-include_once "../../../include/db/commerce.php";
-include_once "../../../include/db/produit.php";
+include_once "../../../include/db/session.php";
 include_once "../../../include/get.php";
 include_once "../../../include/error.php";
 
-session_start();
-
-$commerce = $_SESSION["commerceConnecte"];
+$commerce = commerceConnecte();
 
 $url_connexion = getUrl("../../../index.php", array("action" => "inscriptionCommerce"));
 $url_ajouter_offre = getUrl("../../../index.php", array("action" => "ajouterOffre"));
@@ -31,8 +27,8 @@ else {
 
 		if ($offre !== null) {
 			// Offre ajouter.
-			$_SESSION["commerce"] = $commerce;
-			$_SESSION["produit"] = $produit;
+			selectionnerCommerce($commerce);
+			selectionnerProduit($produit);
 			Header("Location: $url_lister_offre");
 		}
 		else {

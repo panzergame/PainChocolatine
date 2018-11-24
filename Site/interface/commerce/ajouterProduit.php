@@ -1,5 +1,3 @@
-<section>
-
 <h2>Ajouter un Produit</h2>
 
 <form method='post' action='interface/commerce/action/produits.php'>
@@ -23,6 +21,3 @@
 		<input type="submit" name="action" value="OK"/>
 	</p>
 </form>
-
-
-</section>

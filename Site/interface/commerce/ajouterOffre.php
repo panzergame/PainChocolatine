@@ -1,13 +1,11 @@
 <?php
 
-$commerce = $_SESSION["commerceConnecte"];
+$commerce = commerceConnecte();
 
 // if ($commerce == null){
 // 	// Bug si pas traiter..
 // }
  ?>
-
-<section>
 
 <h2>Ajouter une Offre</h2>
 
@@ -18,9 +16,9 @@ $commerce = $_SESSION["commerceConnecte"];
 		<select name="id">
 
 <?php
-	$produit = $_SESSION["produit"];
+	$produit = produitSelectionne();
 	$id_default = 0;
-	if (isset($produit) and $produit !== null) {
+	if ($produit !== null) {
 		$id_default = $produit->id;
 	}
 
@@ -63,6 +61,3 @@ $commerce = $_SESSION["commerceConnecte"];
 	</p>
 
 </form>
-
-
-</section>
