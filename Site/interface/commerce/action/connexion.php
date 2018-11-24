@@ -14,6 +14,7 @@ if ($nom_valid and $mdp_valid) {
 	$commerce = obtenirCommerceConnexion($nom, $mdp);
 
 	if($commerce) {
+		deconnecterClient();
 		connecterCommerce($commerce);
 		Header("Location: $url_lister_clients");
 	}

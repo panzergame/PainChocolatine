@@ -2,7 +2,7 @@
 
 $commerce = commerceConnecte();
 
-if(isset($commerce)) {
+if($commerce !== null) {
 	$reservations = listerReservationsCommerce($commerce);
 	echo "<table>";
 	echo "<tr>

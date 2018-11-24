@@ -28,6 +28,9 @@ switch ($action) {
 	case "ajouterReservation":
 		include_once "client/ajouterReservation.php";
 		break;
+	case "listerReservation":
+		include_once "client/listerReservation.php";
+		break;
 	case "listerClient":
 		include_once "commerce/listerClients.php";
 		break;

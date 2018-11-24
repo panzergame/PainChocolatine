@@ -7,7 +7,7 @@ include_once "../../../include/error.php";
 $commerce = commerceConnecte();
 
 $url_ajout_produit = getUrl("../../../index.php", array("action" => "ajouterProduit"));
-$url_connexion = getUrl("../../../index.php", array("action" => "inscriptionCommerce"));
+$url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
 $url_ajouter_offre = getUrl("../../../index.php", array("action" => "ajouterOffre"));
 
 if ($commerce === null) {
