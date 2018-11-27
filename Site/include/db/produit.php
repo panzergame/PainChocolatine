@@ -86,15 +86,31 @@ function ajouterProduit($commerce, $nom, $description, $prix)
 	return $produit;
 }
 
+/** Supprime les produit d'un commerce
+ * \param commerce Le commerce contenant les produits à supprimer.
+ */
+function supprimerProduitsCommerce($commerce)
+{
+    global $db;
+
+    $idCommerce = $commerce->id;
+    $c = "DELETE FROM `produit` WHERE idCommerce='$idCommerce'";
+    $r = mysqli_query($db,$c);
+}
+
 
 /**Supprime Le produit selectionné
  * \param produit  Produit à supprimer, Le produit existe toujours.
  */
 function supprimerProduit($produit)
 {
+	// Supprimer les offres et réservations associées.
+	supprimerOffresProduit($produit);
+	supprimerReservationsProduit($produit);
+
     global $db;
     $id = $produit -> id;
-    $c = "DELETE * FROM `produit` WHERE id='$id'";
+    $c = "DELETE FROM `produit` WHERE id='$id'";
     $r = mysqli_query($db,$c);
 }
 ?>

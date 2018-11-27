@@ -117,9 +117,16 @@ function supprimerCommerce($nom, $mdp)
 {
 	global $db;
 
-    if (obtenirCommerceConnexion($nom , $mdp) !== null) {
-	    $c = "DELETE * FROM `commerce` WHERE nom = '$nom'";
+	$commerce = obtenirCommerceConnexion($nom , $mdp);
+	if ($commerce !== null) {
+		// Suppression de tous les produits, offres et reservations associés à ce commerce.
+		supprimerProduitsCommerce($commerce);
+		supprimerOffresCommerce($commerce);
+		supprimerReservationsCommerce($commerce);
+
+	    $c = "DELETE FROM `commerce` WHERE nom = '$nom'";
 	    $r = mysqli_query($db, $c);
+
         return true;
     }
     else {

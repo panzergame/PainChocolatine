@@ -6,6 +6,7 @@ class Reservation
 {
 	public $id = null;
 	public $idOffre;
+	public $idProduit;
 	public $idClient;
 	public $idCommerce;
 	public $qte = 0;
@@ -81,14 +82,16 @@ function listerReservationsOffre($offre)
 
 /** Ajoute une reservation pour une offre.
  * \param client Le client qui réserve.
- * \param offre L'offre que le client a réservé.
+ * \param offre Le produit de l'offre que le client a réservé.
+ * \param produit L'offre que le client a réservé.
  * \param qte Quantité de l'offre que le client a réservé.
  * \return La réservation.
  */
-function ajouterReservation($client, $offre, $qte)
+function ajouterReservation($client, $offre, $produit, $qte)
 {
 	$reservation = new Reservation();
 	$reservation->idOffre = $offre->id;
+	$reservation->idProduit = $produit->id;
 	$reservation->idClient = $client->id;
 	$reservation->idCommerce = $offre->idCommerce;
 	$reservation->qte = $qte;
@@ -100,11 +103,9 @@ function ajouterReservation($client, $offre, $qte)
 	return $reservation;
 }
 
-
 /**Supprime la reservation selectionnée
  * \param reservation La reservation à supprimer, La reservation existe toujours.
  */
-
 function supprimerReservation($reservation)
 {
     global $db;
@@ -113,15 +114,31 @@ function supprimerReservation($reservation)
     $r = mysqli_query($db,$c);
 }
 
-
 /** Supprime les Reservations correspondant à une offre.
  *\param offre  Offre dont on veut supprimer les réservations. L'offre existe toujours.
  */
-function supprimerReservationOffre($offre)
+function supprimerReservationsOffre($offre)
 {
     global $db;
     $idOffre = $offre -> id;
-    $c = "DELETE * FROM `reservation` WHERE idOffre = '$idOffre'";
+    $c = "DELETE FROM `reservation` WHERE idOffre = '$idOffre'";
+    $r = mysqli_query($db,$c);
+}
+
+function supprimerReservationsProduit($produit)
+{
+    global $db;
+    $idProduit = $produit -> id;
+    $c = "DELETE FROM `reservation` WHERE idProduit = '$idProduit'";
+    $r = mysqli_query($db,$c);
+}
+
+
+function supprimerReservationsCommerce($commerce)
+{
+    global $db;
+    $idCommerce = $commerce -> id;
+    $c = "DELETE FROM `reservation` WHERE idCommerce = '$idCommerce'";
     $r = mysqli_query($db,$c);
 }
 

@@ -113,7 +113,7 @@ function supprimerClient($nom, $mdp)
 	global $db;
 
     if (obtenirClientConnexion($nom , $mdp) !== null) {
-	    $c = "DELETE * FROM `client` WHERE nom = '$nom'";
+	    $c = "DELETE FROM `client` WHERE nom = '$nom'";
 	    $r = mysqli_query($db, $c);
         return true;
     }

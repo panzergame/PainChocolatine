@@ -100,10 +100,13 @@ function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire
  */
 function supprimerOffre($offre)
 {
+	// Suppression des reservations associées.
+	supprimerReservationsOffre($offre);
+
 	global $db;
 
     $id =  $offre -> id;
-	$c = "DELETE * FROM `offre` WHERE id = '$id'";
+	$c = "DELETE FROM `offre` WHERE id = '$id'";
 	$r = mysqli_query($db, $c);
 
 }
@@ -113,11 +116,22 @@ function supprimerOffre($offre)
  * \param produit  Produit dont on veut supprimer les offres. Le produit existe toujours.
  */
 
-function supprimerOffreProduit($produit) 
+function supprimerOffresProduit($produit) 
 {
     global $db;
     $idProduit = $produit -> id;
-    $c = "DELETE * FROM `offre` WHERE idProduit = '$idProduit'";
+    $c = "DELETE FROM `offre` WHERE idProduit = '$idProduit'";
+    $r = mysqli_query($db,$c);
+}
+
+// TODO
+
+function supprimerOffresCommerce($commerce) 
+{
+    global $db;
+
+    $idCommerce = $commerce -> id;
+    $c = "DELETE FROM `offre` WHERE idCommerce = '$idCommerce'";
     $r = mysqli_query($db,$c);
         
 }
