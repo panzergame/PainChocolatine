@@ -2,9 +2,6 @@
 
 $commerce = commerceConnecte();
 
-// if ($commerce == null){
-// 	// Bug si pas traiter..
-// }
  ?>
 
 <h2>Ajouter une Offre</h2>
