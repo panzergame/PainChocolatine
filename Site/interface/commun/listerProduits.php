@@ -3,12 +3,21 @@
 $commerce = commerceSelectionne();
 // Toutes les produits du commerce précedement selectionné.
 $produits = listerProduits($commerce);
+$commerce_connecte = (commerceConnecte() !== null);
 
 echo "<h1>Liste de produits</h1>";
 
 echo "<table>";
 
-echo "<tr><td>Nom</td><td>Description</td><td>Prix</td><td></td></tr>";
+echo "<tr>";
+echo "<td>Nom</td><td>Description</td><td>Prix</td><td></td>";
+
+if ($commerce_connecte) {
+	// Ajout de la colone de reservation ou suppression.
+	echo "<td></td>";
+}
+
+echo "<tr>";
 
 foreach ($produits as $produit) {
 	$nom = $produit->nom;
@@ -29,6 +38,13 @@ foreach ($produits as $produit) {
 		echo "<button type=\"submit\" name=\"id\" value=\"$id\">Voir les offres</button>";
 		echo "<input type=\"hidden\" name=\"action\" value=\"listerOffre\"/>";
 	echo "</form>";
+	if ($commerce_connecte) {
+		echo "<td>";
+		echo "<form action=\"interface/commerce/action/supprimerProduit.php\"    method=\"post\">";
+			echo "<button type=\"submit\" name=\"id\" value=\"$id\">Supprimer</button>";
+		echo "</form>";
+		echo "</td>";
+	}
 	echo "</td>";
 	
 	echo "</tr>";

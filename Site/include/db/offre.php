@@ -1,6 +1,7 @@
 <?php
 
 include_once "db.php";
+include_once "reservation.php"; // Pour supprimerReservationsOffre.
 
 class Offre
 {

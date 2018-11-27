@@ -6,7 +6,7 @@ $commerce = commerceConnecte();
 
 <h2>Ajouter une Offre</h2>
 
-<form method='post' action='interface/commerce/action/offres.php'>
+<form method='post' action='interface/commerce/action/ajouterOffre.php'>
 
 	<p>
 		Produit:

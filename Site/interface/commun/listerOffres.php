@@ -6,6 +6,7 @@ $offres = listerOffres($produit);
 $nom = $produit->nom;
 
 $client_connecte = (clientConnecte() !== null);
+$commerce_connecte = (commerceConnecte() !== null);
 
 echo "<h1>Liste d'offres de $nom</h1>";
 
@@ -17,8 +18,8 @@ echo "<td>Quantité maximal</td>";
 echo "<td>Quantité maximal par client</td>";
 echo "<td>Horaire</td>";
 
-if ($client_connecte) {
-	// Ajout de la colone de reservation.
+if ($client_connecte or $commerce_connecte) {
+	// Ajout de la colone de reservation ou suppression.
 	echo "<td></td>";
 }
 
@@ -42,6 +43,13 @@ foreach ($offres as $offre) {
 		echo "<form action=\"interface/commun/action/offre.php\"    method=\"post\">";
 			echo "<button type=\"submit\" name=\"id\" value=\"$id\">Reserver</button>";
 			echo "<input type=\"hidden\" name=\"action\" value=\"ajouterReservation\"/>";
+		echo "</form>";
+		echo "</td>";
+	}
+	else if ($commerce_connecte) {
+		echo "<td>";
+		echo "<form action=\"interface/commerce/action/supprimerOffre.php\"    method=\"post\">";
+			echo "<button type=\"submit\" name=\"id\" value=\"$id\">Supprimer</button>";
 		echo "</form>";
 		echo "</td>";
 	}

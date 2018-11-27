@@ -1,6 +1,6 @@
 <h2>Ajouter un Produit</h2>
 
-<form method='post' action='interface/commerce/action/produits.php'>
+<form method='post' action='interface/commerce/action/ajouterProduit.php'>
 	<p>
 		<label for='nom'>Nom</label>
 		<input type="text" name="nom"/>

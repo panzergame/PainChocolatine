@@ -82,16 +82,15 @@ function listerReservationsOffre($offre)
 
 /** Ajoute une reservation pour une offre.
  * \param client Le client qui réserve.
- * \param offre Le produit de l'offre que le client a réservé.
- * \param produit L'offre que le client a réservé.
+ * \param offre L'offre que le client a réservé.
  * \param qte Quantité de l'offre que le client a réservé.
  * \return La réservation.
  */
-function ajouterReservation($client, $offre, $produit, $qte)
+function ajouterReservation($client, $offre, $qte)
 {
 	$reservation = new Reservation();
 	$reservation->idOffre = $offre->id;
-	$reservation->idProduit = $produit->id;
+	$reservation->idProduit = $offre->idProduit;
 	$reservation->idClient = $client->id;
 	$reservation->idCommerce = $offre->idCommerce;
 	$reservation->qte = $qte;

@@ -21,8 +21,7 @@ else {
 			// Impossible de reserver.
 		}
 		else {
-			$poduit = obtenirProduitId($offre->idProduit);
-			$reservation = ajouterReservation($client, $offre, $produit, $qte);
+			$reservation = ajouterReservation($client, $offre, $qte);
 
 			Header("Location: $url_lister_reservation");
 		}
