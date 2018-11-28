@@ -134,6 +134,23 @@ function supprimerOffresCommerce($commerce)
     $idCommerce = $commerce -> id;
     $c = "DELETE FROM `offre` WHERE idCommerce = '$idCommerce'";
     $r = mysqli_query($db,$c);
-        
 }
+
+/** Consommer une certaine quantité d'une offre.
+ * \param offre L'offre à consommer.
+ * \param qte La quantité valide à consommer.
+ */
+function consommerOffre($offre, $qte)
+{
+	global $db;
+
+	$offre->qteDispo -= $qte;
+
+	$id = $offre->id;
+	$qteDispo = $offre->qteDispo;
+
+    $c = "UPDATE `offre` SET qteDispo = '$qteDispo' WHERE id = '$id'";
+	$r = mysqli_query($db, $c);
+}
+
 ?>

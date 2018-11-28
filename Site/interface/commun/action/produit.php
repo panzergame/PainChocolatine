@@ -7,16 +7,15 @@
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/produit.php";
 include_once "../../../include/get.php";
+include_once "../../../include/error.php";
 
-$id = $_POST["id"];
+valeurValideNumericPost("id");
+valeurValidePost("action");
 
-if (isset($id) && is_numeric($id)) {
+if ($id_valid and $action_valid) {
 	$produit = obtenirProduitId($id);
-	if ($produit != null) {
-		selectionnerProduit($produit);
-	}
+	selectionnerProduit($produit);
 
-	$action = $_POST["action"];
 	$url = getUrl("../../../index.php", array("action" => $action));
 	Header("Location: $url");
 }

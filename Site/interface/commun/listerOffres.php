@@ -38,7 +38,7 @@ foreach ($offres as $offre) {
 	echo "<td>$qteMaxClient</td>";
 	echo "<td>$horaire</td>";
 
-    if ($client_connecte) {
+    if ($client_connecte and $qteDispo > 0) {
 		echo "<td>";
 		echo "<form action=\"interface/commun/action/offre.php\"    method=\"post\">";
 			echo "<button type=\"submit\" name=\"id\" value=\"$id\">Reserver</button>";

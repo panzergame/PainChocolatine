@@ -7,16 +7,15 @@
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/commerce.php";
 include_once "../../../include/get.php";
+include_once "../../../include/error.php";
 
-$id = $_POST["id"];
+valeurValideNumericPost("id");
+valeurValidePost("action");
 
-if (isset($id) && is_numeric($id)) {
+if ($id_valid and $action_valid) {
 	$commerce = obtenirCommerceId($id);
-	if ($commerce != null) {
-		selectionnerCommerce($commerce);
-	}
+	selectionnerCommerce($commerce);
 
-	$action = $_POST["action"];
 	$url = getUrl("../../../index.php", array("action" => $action));
 	Header("Location: $url");
 }
