@@ -101,6 +101,24 @@ function commerceConnecte()
 	return getSessionOrNull("commerceConnecte");
 }
 
+/** Renvoie l'utilisateur actuellement connecté.
+ * \return Utilisateur ou null.
+ */
+function utilisateurConnecte()
+{
+	$client = clientConnecte();
+	$commerce = commerceConnecte();
+
+	if ($client) {
+		return $client;
+	}
+	if ($commerce) {
+		return $commerce;
+	}
+
+	return null;
+}
+
 /// Deconnecter le client actuel.
 function deconnecterClient()
 {
