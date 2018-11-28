@@ -108,6 +108,11 @@ function ajouterReservation($client, $offre, $qte)
 function supprimerReservation($reservation)
 {
     global $db;
+    // Ajoute la reservation à statistique avant de la supprimer (à revoir)
+    ajouterStatistique($reservation);   
+
+
+
     $id = $reservation -> id;
     $c = "DELETE * FROM `reservation` WHERE id= '$id'";
     $r = mysqli_query($db,$c);
@@ -124,6 +129,9 @@ function supprimerReservationsOffre($offre)
     $r = mysqli_query($db,$c);
 }
 
+/** Supprime les Reservations correspondant à un produit.
+ *\param produit  Produit dont on veut supprimer les réservations. Le produit existe toujours.
+ */
 function supprimerReservationsProduit($produit)
 {
     global $db;
@@ -132,7 +140,9 @@ function supprimerReservationsProduit($produit)
     $r = mysqli_query($db,$c);
 }
 
-
+/** Supprime les Reservations correspondant à un commerce.
+ *\param commerce  Commerce dont on veut supprimer les réservations. Le commerce existe toujours.
+ */
 function supprimerReservationsCommerce($commerce)
 {
     global $db;
@@ -140,5 +150,16 @@ function supprimerReservationsCommerce($commerce)
     $c = "DELETE FROM `reservation` WHERE idCommerce = '$idCommerce'";
     $r = mysqli_query($db,$c);
 }
+
+/** Supprime les Reservations correspondant à un client.
+ *\param client  client dont on veut supprimer les réservations. Le client existe toujours.
+ */
+function supprimerReservationsClient($client)
+{
+    global $db;
+    $idClient = $client -> id;
+    $c = "DELETE FROM `reservation` WHERE idCLient = '$idClient'";
+    $r = mysqli_query($db,$c);
+
 
 ?>

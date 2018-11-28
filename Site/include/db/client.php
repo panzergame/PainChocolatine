@@ -112,9 +112,17 @@ function supprimerClient($nom, $mdp)
 {
 	global $db;
 
-    if (obtenirClientConnexion($nom , $mdp) !== null) {
+    $client = obtenirClientConnexion($nom, $mdp);
+
+    if ($client !== null) {
+
+     // Suppression des réservations lié au client
+        supprimerReservationClient($client);
+
 	    $c = "DELETE FROM `client` WHERE nom = '$nom'";
 	    $r = mysqli_query($db, $c);
+        
+      
         return true;
     }
     else {
