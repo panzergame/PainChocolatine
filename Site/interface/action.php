@@ -43,6 +43,9 @@ switch ($action) {
 	case "inscription":
 		include_once "commun/inscription.php";
 		break;
+	case "gestionCompte":
+		include_once "commun/gestionCompte.php";
+		break;
 }
 
 ?>
