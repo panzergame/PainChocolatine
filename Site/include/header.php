@@ -22,11 +22,17 @@ include_once "include/get.php";
 			$url_lister_client = getUrl("index.php", array("action" => "listerClient"));
 			$url_lister_reservation = getUrl("index.php", array("action" => "listerReservation"));
 			$url_lister_produit = getUrl("index.php", array("action" => "listerProduit"));
+			$url_ajouter_produit = getUrl("index.php", array("action" => "ajouterProduit"));
+			$url_ajouter_offre = getUrl("index.php", array("action" => "ajouterOffre"));
 
 			$client = clientConnecte();
 			$commerce = commerceConnecte();
 
 			if ($client !== null or $commerce !== null) {
+				$utilisateur = utilisateurConnecte();
+				$imagePath = imagePath($utilisateur->image);
+				echo "<img src=\"$imagePath\" alt=\"profile\" height=\"30\" width=\"30\"/>";
+
 				if ($client !== null) {
 					$nom = $client->nom;
 					echo "Connecté en tant que client ($nom)";
@@ -46,6 +52,8 @@ include_once "include/get.php";
 				else if ($commerce !== null) {
 					echo "<a href=\"$url_lister_client\">Ses clients</a>";
 					echo "<a href=\"$url_lister_produit\">Ses produits</a>";
+					echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
+					echo "<a href=\"$url_ajouter_offre\">Ajouter une offre</a>";
 				}
 			}
 			else {

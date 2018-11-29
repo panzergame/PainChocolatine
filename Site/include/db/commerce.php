@@ -78,9 +78,10 @@ function obtenirCommerceId($idCommerce)
  * \param type Type de commerce.
  * \param tel Numéro de téléphone du commerce.
  * \param email Email du commerce.
+ * \param image Image du commerce.
  * \return Le commerce si l'ajout est effectué, sinon null si le commerce existe déjà.
  */
-function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email)
+function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image)
 {
 	global $db;
 
@@ -99,6 +100,7 @@ function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email)
 	$commerce->type = $type;
 	$commerce->tel = $tel;
 	$commerce->email = $email;
+	$commerce->image = $image;
 
 	if (!ecrireLigne("commerce", $commerce)) {
 		return null;

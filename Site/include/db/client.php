@@ -56,9 +56,10 @@ function obtenirClientConnexion($nom, $mdp)
  * \param nom Nom du client.
  * \param mdp Not de passe du client.
  * \param email Email du client.
+ * \param image Image profil du client.
  * \return Le client si l'ajout est effectué, sinon null si le client existe déjà.
  */
-function ajouterClient($nom, $mdp, $email)
+function ajouterClient($nom, $mdp, $email, $image)
 {
 	global $db;
 
@@ -74,6 +75,7 @@ function ajouterClient($nom, $mdp, $email)
 	$client->nom = $nom;
 	$client->mdp = $mdp;
 	$client->email = $email;
+	$client->image = $image;
 
 	if (!ecrireLigne("client", $client)) {
 		return null;

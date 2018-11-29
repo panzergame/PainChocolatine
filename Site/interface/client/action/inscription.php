@@ -12,8 +12,8 @@ valeurValidePost("nom");
 valeurValidePost("mdp");
 valeurValidePost("email");
 
-if ($nom_valid and $mdp_valid and $email_valid) {
-	$client = ajouterClient($nom, $mdp, $email);
+if ($nom_valid and $mdp_valid and $email_valid and $image_valid) {
+	$client = ajouterClient($nom, $mdp, $email, $image);
 
 	if($client) {
 		connecterClient($client);

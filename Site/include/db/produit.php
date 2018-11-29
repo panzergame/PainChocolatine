@@ -9,6 +9,7 @@ class Produit
 	public $idCommerce;
 	public $nom = "";
 	public $description = "";
+	public $image = "";
 	public $prix = 0.0;
 }
 
@@ -57,10 +58,11 @@ function obtenirProduitId($idProduit)
  * \param commerce Le commerce proposant ce produit.
  * \param nom Le nom du produit.
  * \param description La description du produit.
+ * \param image L'image du produit.
  * \param prix Le prix du produit.
  * \return Produit ou null.
  */
-function ajouterProduit($commerce, $nom, $description, $prix)
+function ajouterProduit($commerce, $nom, $description, $image, $prix)
 {
 	global $db;
 
@@ -78,6 +80,7 @@ function ajouterProduit($commerce, $nom, $description, $prix)
 	$produit->idCommerce = $idCommerce;
 	$produit->nom = $nom;
 	$produit->description = $description;
+	$produit->image = $image;
 	$produit->prix = $prix;
 
 	if (!ecrireLigne("produit", $produit)) {
@@ -98,7 +101,6 @@ function supprimerProduitsCommerce($commerce)
     $c = "DELETE FROM `produit` WHERE idCommerce='$idCommerce'";
     $r = mysqli_query($db,$c);
 }
-
 
 /**Supprime Le produit selectionné
  * \param produit  Produit à supprimer, Le produit existe toujours.

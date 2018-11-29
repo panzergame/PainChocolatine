@@ -6,6 +6,7 @@ class Utilisateur
 	public $mdp = "";
 	public $id = null;
 	public $email = "";
+	public $image = "";
 }
 
 ?>

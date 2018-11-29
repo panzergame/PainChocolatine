@@ -21,8 +21,8 @@ else {
 	valeurValideNumericPost("prix");
 
     //On ajoute le produit à la bd.
-    if ($prix_valid and $description_valid and $nom_valid){
-		$produit = ajouterProduit($commerce, $nom, $description, $prix);
+    if ($prix_valid and $description_valid and $nom_valid and $image_valid){
+		$produit = ajouterProduit($commerce, $nom, $description, $image, $prix);
 		if ($produit !== null) {
 			selectionnerProduit($produit);
 			Header("Location: $url_ajouter_offre");

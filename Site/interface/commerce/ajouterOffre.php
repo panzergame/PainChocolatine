@@ -6,6 +6,13 @@ $commerce = commerceConnecte();
 
 <h2>Ajouter une Offre</h2>
 
+<?php
+
+$url_ajouter_produit = getUrl("index.php", array("action" => "ajouterProduit"));
+echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
+
+?>
+
 <form method='post' action='interface/commerce/action/ajouterOffre.php'>
 
 	<p>

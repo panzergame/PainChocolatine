@@ -14,7 +14,7 @@ function update(option)
 
 </script>
 
-<form method='post' action='interface/commun/action/inscription.php'>
+<form method='post' action='interface/commun/action/inscription.php' enctype="multipart/form-data">
 	<p>
 		<label for='categorie'>Catégorie</label>
 		<select name="categorie">
@@ -36,6 +36,11 @@ function update(option)
 	<p>
 		<label for='email'>Email</label>
 		<input type="text" name="email"/>
+	</p>
+
+	<p>
+		<label for='file'>Image profile</label>
+		<input type="file" name="file">
 	</p>
 
 	<p id="tel"> 
