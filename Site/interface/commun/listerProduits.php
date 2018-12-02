@@ -10,7 +10,7 @@ echo "<h1>Liste de produits</h1>";
 echo "<table>";
 
 echo "<tr>";
-echo "<td>Nom</td><td>Description</td><td>Prix</td><td></td>";
+echo "<td></td><td>Nom</td><td>Description</td><td>Prix</td><td></td>";
 
 if ($commerce_connecte) {
 	// Ajout de la colone de reservation ou suppression.
@@ -24,8 +24,10 @@ foreach ($produits as $produit) {
 	$description = $produit->description;
 	$prix = $produit->prix;
 	$id = $produit->id;
+	$imagePath = imagePath($produit->image);
 
 	echo "<tr>";
+	echo "<td><img src=\"$imagePath\" alt=\"profile\" height=\"30\" width=\"30\"/></td>";
 	echo "<td>$nom</td>";
 	echo "<td>$description</td>";
 	echo "<td>$prix</td>";

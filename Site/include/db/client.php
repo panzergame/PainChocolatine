@@ -118,7 +118,7 @@ function supprimerClient($nom, $mdp)
 
     if ($client !== null) {
 
-     // Suppression des réservations lié au client
+		// Suppression des réservations liés au client
         supprimerReservationClient($client);
 
 	    $c = "DELETE FROM `client` WHERE nom = '$nom'";

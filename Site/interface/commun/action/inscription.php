@@ -8,13 +8,10 @@ valeurValidePost("file");
 
 if ($categorie_valid) {
 	// Gestion de l'upload d'image.
-	if (isset($_FILES["file"]) and !empty($_FILES["file"]["name"])) { // TODO fonction dans error.php
-		$image = $_FILES["file"]["name"];
-		$imageTmp = $_FILES["file"]["tmp_name"];
+	valeurValideFiles("image");
+
+	if ($image_valid) {
 		$image_valid = enregisterImage($imageTmp, $image);
-	}
-	else {
-		$image_valid = false;
 	}
 
 	if ($categorie == "client") {

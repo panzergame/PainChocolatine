@@ -160,6 +160,6 @@ function supprimerReservationsClient($client)
     $idClient = $client -> id;
     $c = "DELETE FROM `reservation` WHERE idCLient = '$idClient'";
     $r = mysqli_query($db,$c);
-
+}
 
 ?>

@@ -32,4 +32,21 @@ function valeurValideNumericPost($nom)
 	}
 }
 
+/** Teste la présence et la validité d'un fichier à enregistrer.
+ * Enregistre le nom du fichier dans $[nom] et le nom du fichier temporairement
+ * stocké sur le serveur dans $[nom]Tmp.
+ * \param nom Le nom du champ.
+ */
+function valeurValideFiles($nom)
+{
+	if (isset($_FILES[$nom]) and !empty($_FILES[$nom]["name"])) {
+		$GLOBALS[$nom] = $_FILES[$nom]["name"];
+		$GLOBALS[$nom . "Tmp"] = $_FILES[$nom]["tmp_name"];
+		$GLOBALS[$nom . "_valid"] = true;
+	}
+	else {
+		$GLOBALS[$nom . "_valid"] = false;
+	}
+}
+
 ?>

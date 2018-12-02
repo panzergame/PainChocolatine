@@ -39,8 +39,8 @@ function update(option)
 	</p>
 
 	<p>
-		<label for='file'>Image profile</label>
-		<input type="file" name="file">
+		<label for='image'>Image profile</label>
+		<input type="file" name="image">
 	</p>
 
 	<p id="tel"> 

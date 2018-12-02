@@ -1,6 +1,6 @@
 <h2>Ajouter un Produit</h2>
 
-<form method='post' action='interface/commerce/action/ajouterProduit.php'>
+<form method='post' action='interface/commerce/action/ajouterProduit.php' enctype="multipart/form-data">
 	<p>
 		<label for='nom'>Nom</label>
 		<input type="text" name="nom"/>
@@ -9,6 +9,11 @@
 	<p>
 		<label for='description'>Description</label>
 		<input type="text" name="description"/>
+	</p>
+
+	<p>
+		<label for='image'>Image</label>
+		<input type="file" name="image">
 	</p>
 
 	<p>

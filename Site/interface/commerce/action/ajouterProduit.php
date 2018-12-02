@@ -1,6 +1,7 @@
 <?php
 
 include_once "../../../include/db/session.php";
+include_once "../../../include/db/image.php";
 include_once "../../../include/get.php";
 include_once "../../../include/error.php";
 
@@ -19,6 +20,11 @@ else {
 	valeurValidePost("nom");
 	valeurValidePost("description");
 	valeurValideNumericPost("prix");
+	valeurValideFiles("image");
+
+	if ($image_valid) {
+		$image_valid = enregisterImage($imageTmp, $image);
+	}
 
     //On ajoute le produit à la bd.
     if ($prix_valid and $description_valid and $nom_valid and $image_valid){
