@@ -8,25 +8,58 @@ class Statistique extends Reservation
 }
 
 
-/** Renvoi une liste de toutes les statistiques ( Reservations par jour ).
- * \return liste des statistiques.
- */ 
-function listerStatistique()
-{
-    global $db;
 
-    $c = "SELECT * FROM `statistique`"; 
+/** Renvoi une liste de toutes les statistiques pour un commerce.
+ * \param commerce : Le commerce dont on veut lister les statistiques.
+ * \return liste des statistiques pour un commerce.
+ */
+
+function listerStatistiqueCommerce($commerce)
+{
+   global $db;
+
+    $idCommerce =  $commerce->id;  
+
+    $c = "SELECT * FROM `statistique`  WHERE idCommerce = '$idCommerce'"; 
     $r = mysqli_query($db, $c);
 
-    $statistique = []; 
-    while ($row = mysqli_fetch_assoc($r)) {
+    $statistique = [];
+    while ($rox = mysqli_fetch_assoc($r)){
         $statistique = new Statistique();
-        extraireLigne($row, $statistique);
-        array_push($statistique, $statistique);
+        extraireLigne($row,$statistique);
+        array_push($statistique,$statistique);
     }
-    
+
     return $statistique;
+
 }
+
+
+/** Renvoi une liste de toutes les statistiques pour un client.
+ * \param client : Le client dont on veut lister les statistiques.
+ * \return liste des statistiques pour un client.
+ */
+
+function listerStatistiqueClient($client)
+{
+   global $db;
+
+    $idClient =  $client->id;  
+
+    $c = "SELECT * FROM `statistique`  WHERE idClient = '$idClient'"; 
+    $r = mysqli_query($db, $c);
+
+    $statistique = [];
+    while ($rox = mysqli_fetch_assoc($r)){
+        $statistique = new Statistique();
+        extraireLigne($row,$statistique);
+        array_push($statistique,$statistique);
+    }
+
+    return $statistique;
+
+}
+
 
 /** Ajouter une statistique
  * \param reservation La reservation à enregistrer
