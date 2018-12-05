@@ -23,42 +23,19 @@ function update(option)
 		</select>
 	</p>
 
-	<p>
-		<label for='nom'>Nom</label>
-		<input type="text" name="nom"/>
-	</p>
+<?php
 
-	<p>
-		<label for='mdp'>Mot de passe</label>
-		<input type="text" name="mdp"/>
-	</p>
+	entreeTexte("nom", "Nom");
+	entreeTexte("mdp", "mot de passe");
+	entreeTexte("email", "Email");
+	entreeFichier("image", "Image profile");
+	entreeTexteId("tel", "Téléphone du commerce", "tel");
+	entreeTexteId("type", "Type du commerce", "type");
+	entreeTexteId("description", "Description du commerce", "description");
 
-	<p>
-		<label for='email'>Email</label>
-		<input type="text" name="email"/>
-	</p>
+	entreeHoraire("horaire", "Horaire");
+	buttonEnvoyer("S'inscrire");
 
-	<p>
-		<label for='image'>Image profile</label>
-		<input type="file" name="image">
-	</p>
+?>
 
-	<p id="tel"> 
-<!-- TODO default style en none	 -->
-		<label for='tel'>Téléphone du commerce</label>
-		<input type="text" name="tel"/>
-	</p>
-
-	<p id="type">
-		<label for='type'>Type du commerce</label>
-		<input type="text" name="type"/>
-	</p>
-
-	<p id="description">
-		<label for='description'>Description du commerce</label>
-		<input type="text" name="description"/>
-	</p>
-
-
-	<button name="inscrire">S'inscire'</button>
 </form>

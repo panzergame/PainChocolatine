@@ -31,6 +31,7 @@ else {
 		$produit = ajouterProduit($commerce, $nom, $description, $image, $prix);
 		if ($produit !== null) {
 			selectionnerProduit($produit);
+			effacerValeurs();
 			Header("Location: $url_ajouter_offre");
 		}
 		else {

@@ -1,5 +1,7 @@
 <?php
 
+include_once "form.php";
+
 /** Teste la présence et la validité (non vide) d'un champ de formulaire.
  * Créer les variables globales $[nom] et $[nom]_valid. $[nom] contient la
  * valeur du champs si il est valide, $[nom]_valid est un booleen à vrai
@@ -11,6 +13,7 @@ function valeurValidePost($nom)
 	if (isset($_POST[$nom]) and !empty($_POST[$nom])) {
 		$GLOBALS[$nom] = strip_tags($_POST[$nom]);
 		$GLOBALS[$nom . "_valid"] = true;
+		enregistrerChampValide($nom, $GLOBALS[$nom]);
 	}
 	else {
 		$GLOBALS[$nom . "_valid"] = false;
@@ -26,6 +29,7 @@ function valeurValideNumericPost($nom)
 	if (isset($_POST[$nom]) and !empty($_POST[$nom]) and is_numeric($_POST[$nom])) {
 		$GLOBALS[$nom] = $_POST[$nom];
 		$GLOBALS[$nom . "_valid"] = true;
+		enregistrerChampValide($nom, $GLOBALS[$nom]);
 	}
 	else {
 		$GLOBALS[$nom . "_valid"] = false;
@@ -43,6 +47,8 @@ function valeurValideFiles($nom)
 		$GLOBALS[$nom] = $_FILES[$nom]["name"];
 		$GLOBALS[$nom . "Tmp"] = $_FILES[$nom]["tmp_name"];
 		$GLOBALS[$nom . "_valid"] = true;
+		enregistrerChampValide($nom, $GLOBALS[$nom]);
+		enregistrerChampValide($nom . "Tmp", $GLOBALS[$nom . "Tmp"]);
 	}
 	else {
 		$GLOBALS[$nom . "_valid"] = false;

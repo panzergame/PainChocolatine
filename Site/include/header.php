@@ -21,7 +21,7 @@ include_once "include/get.php";
 			$url_lister_commerce = getUrl("index.php", array("action" => "listerCommerce"));
 			$url_lister_client = getUrl("index.php", array("action" => "listerClient"));
 			$url_lister_reservation = getUrl("index.php", array("action" => "listerReservation"));
-			$url_lister_produit = getUrl("index.php", array("action" => "listerProduit"));
+			$url_lister_ses_produit = getUrl("index.php", array("action" => "listerSesProduit"));
 			$url_ajouter_produit = getUrl("index.php", array("action" => "ajouterProduit"));
 			$url_ajouter_offre = getUrl("index.php", array("action" => "ajouterOffre"));
 
@@ -51,7 +51,7 @@ include_once "include/get.php";
 				}
 				else if ($commerce !== null) {
 					echo "<a href=\"$url_lister_client\">Ses clients</a>";
-					echo "<a href=\"$url_lister_produit\">Ses produits</a>";
+					echo "<a href=\"$url_lister_ses_produit\">Ses produits</a>";
 					echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
 					echo "<a href=\"$url_ajouter_offre\">Ajouter une offre</a>";
 				}

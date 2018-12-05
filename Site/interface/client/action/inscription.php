@@ -17,6 +17,7 @@ if ($nom_valid and $mdp_valid and $email_valid and $image_valid) {
 
 	if($client) {
 		connecterClient($client);
+		effacerValeurs();
 		Header("Location: $url_lister_commerce");
 	}
 	else {

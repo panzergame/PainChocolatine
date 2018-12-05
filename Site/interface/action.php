@@ -1,6 +1,7 @@
 <?php
 
 include_once "include/get.php";
+include_once "include/form.php";
 
 $action = "listerCommerce";
 
@@ -15,6 +16,9 @@ switch ($action) {
 		break;
 	case "listerProduit":
 		include_once "commun/listerProduits.php";
+		break;
+	case "listerSesProduit":
+		include_once "commerce/listerProduits.php";
 		break;
 	case "listerOffre":
 		include_once "commun/listerOffres.php";

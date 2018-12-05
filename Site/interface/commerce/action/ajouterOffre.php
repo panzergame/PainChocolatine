@@ -29,6 +29,7 @@ else {
 			// Offre ajouter.
 			selectionnerCommerce($commerce);
 			selectionnerProduit($produit);
+			effacerValeurs();
 			Header("Location: $url_lister_offre");
 		}
 		else {

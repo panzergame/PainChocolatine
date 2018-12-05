@@ -15,10 +15,11 @@ valeurValidePost("type");
 valeurValidePost("description");
 
 if ($nom_valid and $mdp_valid and $email_valid and $tel_valid and $type_valid and $description_valid and $image_valid) {
-	$commerce = ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image));
+	$commerce = ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image);
 
 	if($commerce) {
 		connecterCommerce($commerce);
+		effacerValeurs();
 		Header("Location: $url_lister_clients");
 	}
 	else {

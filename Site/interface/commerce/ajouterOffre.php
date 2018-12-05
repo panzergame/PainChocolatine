@@ -44,24 +44,14 @@ echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
 		</select>
 	</p>
 
-	<p>
-		<label for='qteMaxCumul'> Quantité Maximum</label>
-		<input type="number" name="qteMaxCumul" min="1" />
-	</p>
+<?php
 
-	<p>
-		<label for='qteMaxClient'>Quantité Maximum par client</label>
-		<input type="number" name="qteMaxClient" min="1"/>
-	</p>
+	entreeNumeric("qteMaxCumul", "Quantité Maximum", 1, 1);
+	entreeNumeric("qteMaxClient", "Quantité Maximum par client", 1, 1);
 
-	<p>
-		<label for='horaire'>Horaire</label>
-		<input type="time" name="horaire"/>
-	</p>
+	entreeHoraire("horaire", "Horaire");
+	buttonEnvoyer("OK");
 
-	<p>
-		<label for='action'></label>
-		<input type="submit" name="action" value="OK"/>
-	</p>
+?>
 
 </form>
