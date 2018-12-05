@@ -12,7 +12,7 @@ include_once "include/get.php";
 	<body>
 
 	<header>
-		<p>
+		<ul>
 		<?php
 			$url_connexion = getUrl("index.php", array("action" => "connexion"));
 			$url_deconnexion = getUrl("index.php", array("action" => "deconnexion"));
@@ -31,35 +31,35 @@ include_once "include/get.php";
 			if ($client !== null or $commerce !== null) {
 				$utilisateur = utilisateurConnecte();
 				$imagePath = imagePath($utilisateur->image);
-				echo "<img src=\"$imagePath\" alt=\"profile\" height=\"30\" width=\"30\"/>";
+				echo "<li><img src=\"$imagePath\" alt=\"profile\" height=\"30\" width=\"30\"/></li>";
 
 				if ($client !== null) {
 					$nom = $client->nom;
-					echo "Connecté en tant que client ($nom)";
+					echo "<li>Connecté en tant que client ($nom)</li>";
 				}
 				else if ($commerce !== null) {
 					$nom = $commerce->nom;
-					echo "Connecté en tant que commerçant ($nom)";
+					echo "<li>Connecté en tant que commerçant ($nom)</li>";
 				}
 
-				echo "<a href=\"$url_gestion_compte\">Gestion</a>";
-				echo "<a href=\"$url_deconnexion\">Se déconnecter</a>";
+				echo "<li><a href=\"$url_gestion_compte\">Gestion</a></li>";
+				echo "<li><a href=\"$url_deconnexion\">Se déconnecter</a></li>";
 
 				if ($client !== null) {
-					echo "<a href=\"$url_lister_commerce\">Les commerces</a>";
-					echo "<a href=\"$url_lister_reservation\">Ses résérvations</a>";
+					echo "<li><a href=\"$url_lister_commerce\">Les commerces</a></li>";
+					echo "<li><a href=\"$url_lister_reservation\">Ses résérvations</a></li>";
 				}
 				else if ($commerce !== null) {
-					echo "<a href=\"$url_lister_client\">Ses clients</a>";
-					echo "<a href=\"$url_lister_ses_produit\">Ses produits</a>";
-					echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
-					echo "<a href=\"$url_ajouter_offre\">Ajouter une offre</a>";
+					echo "<li><a href=\"$url_lister_client\">Ses clients</a></li>";
+					echo "<li><a href=\"$url_lister_ses_produit\">Ses produits</a></li>";
+					echo "<li><a href=\"$url_ajouter_produit\">Ajouter un produit</a></li>";
+					echo "<li><a href=\"$url_ajouter_offre\">Ajouter une offre</a></li>";
 				}
 			}
 			else {
-				echo "<a href=\"$url_connexion\">Se connecter</a>";
-				echo "<a href=\"$url_inscription\">S'inscrire</a>";
+				echo "<li><a href=\"$url_connexion\">Se connecter</a></li>";
+				echo "<li><a href=\"$url_inscription\">S'inscrire</a></li>";
 			}
 		?>
-		</p>
+		</ul>
 	</header>
