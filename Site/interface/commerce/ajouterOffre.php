@@ -50,6 +50,7 @@ echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
 	entreeNumeric("qteMaxClient", "Quantité Maximum par client", 1, 1);
 
 	entreeHoraire("horaire", "Horaire");
+	entreeHoraire("tempsMax", "Temps maximum de récupération après l'horaire");
 	buttonEnvoyer("OK");
 
 ?>

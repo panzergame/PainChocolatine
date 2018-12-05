@@ -61,5 +61,6 @@ include_once "include/get.php";
 				echo "<li><a href=\"$url_inscription\">S'inscrire</a></li>";
 			}
 		?>
+
 		</ul>
 	</header>

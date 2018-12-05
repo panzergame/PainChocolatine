@@ -19,22 +19,29 @@ else {
 	valeurValideNumericPost("qteMaxCumul");
 	valeurValideNumericPost("qteMaxClient");
 	valeurValidePost("horaire");
+	valeurValidePost("tempsMax");
 
-	if ($id_valid and $qteMaxCumul_valid and $qteMaxClient_valid and $horaire_valid) {
-		$produit = obtenirProduitId($id);
-		//On ajoute le produit à la bd.
-		$offre = ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire);
-
-		if ($offre !== null) {
-			// Offre ajouter.
-			selectionnerCommerce($commerce);
-			selectionnerProduit($produit);
-			effacerValeurs();
-			Header("Location: $url_lister_offre");
+	if ($id_valid and $qteMaxCumul_valid and $qteMaxClient_valid and $horaire_valid and $tempsMax_valid) {
+		if ($qteMaxClient > $qteMaxCumul) {
+			// WHAT THE HELL ! (quantité par client ne pouvant pas être supérieur à la quantité totale).
+			Header("Location: $url_ajouter_offre");
 		}
 		else {
-			// Le produit existait déjà.
-			Header("Location: $url_ajouter_offre");
+			$produit = obtenirProduitId($id);
+			//On ajoute le produit à la bd.
+			$offre = ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire, $tempsMax);
+
+			if ($offre !== null) {
+				// Offre ajouté.
+				selectionnerCommerce($commerce);
+				selectionnerProduit($produit);
+				effacerValeurs();
+				Header("Location: $url_lister_offre");
+			}
+			else {
+				// Le produit existait déjà.
+				Header("Location: $url_ajouter_offre");
+			}
 		}
 	}
 	else{

@@ -33,7 +33,6 @@ function update(option)
 	entreeTexteId("type", "Type du commerce", "type");
 	entreeTexteId("description", "Description du commerce", "description");
 
-	entreeHoraire("horaire", "Horaire");
 	buttonEnvoyer("S'inscrire");
 
 ?>

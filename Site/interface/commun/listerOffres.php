@@ -17,6 +17,7 @@ echo "<td>Qantité disponible</td>";
 echo "<td>Quantité maximal</td>";
 echo "<td>Quantité maximal par client</td>";
 echo "<td>Horaire</td>";
+echo "<td>Temps maximum de récupération</td>";
 
 if ($client_connecte or $commerce_connecte) {
 	// Ajout de la colone de reservation ou suppression.
@@ -31,12 +32,14 @@ foreach ($offres as $offre) {
 	$qteMaxCumul = $offre->qteMaxCumul;
 	$qteMaxClient = $offre->qteMaxClient;
 	$horaire = $offre->horaire;
+	$tempsMax = $offre->tempsMax;
 
 	echo "<tr>";
 	echo "<td>$qteDispo</td>";
 	echo "<td>$qteMaxCumul</td>";
 	echo "<td>$qteMaxClient</td>";
 	echo "<td>$horaire</td>";
+	echo "<td>$tempsMax</td>";
 
     if ($client_connecte and $qteDispo > 0) {
 		echo "<td>";

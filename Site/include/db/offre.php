@@ -12,6 +12,7 @@ class Offre
 	public $qteMaxCumul = 0;
 	public $qteMaxClient = 0;
 	public $horaire = "";
+	public $tempsMax = "";
 }
 
 
@@ -62,10 +63,11 @@ function obtenirOffreId($idOffre)
  * \param qteMaxCumul Quantité de cette offre.
  * \param qteMaxClient Quantité maximum qu'un client peut reservé.
  * \param horaire Horaire à laquelle le client peut réserver l'offre.
+ * \param tempsMax Le temps maximum pour récupérer le produit.
  * \return L'offre si l'ajout est effectué, sinon null si l'offre existe déjà.
  */
 
-function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire)
+function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire, $tempsMax)
 {
 	global $db;
 
@@ -86,7 +88,9 @@ function ajouterOffre($commerce, $produit, $qteMaxCumul, $qteMaxClient, $horaire
 	$offre->qteDispo = $qteMaxCumul;
 	$offre->qteMaxCumul = $qteMaxCumul;
 	$offre->qteMaxClient = $qteMaxClient;
+	$offre->qteMaxClient = $qteMaxClient;
 	$offre->horaire = $horaire;
+	$offre->tempsMax = $tempsMax;
 
 	if (!ecrireLigne("offre", $offre)) {
 		return null;
