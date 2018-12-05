@@ -7,4 +7,6 @@ else if (isset($_POST["commerce"])) {
 	include_once "../../../interface/commerce/action/connexion.php";	
 }
 
+effacerValeurs();
+
 ?>
