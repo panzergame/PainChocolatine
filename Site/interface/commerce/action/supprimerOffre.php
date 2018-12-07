@@ -19,6 +19,10 @@ else {
 	if ($id_valid) {
 		$offre = obtenirOffreId($id);
 		supprimerOffre($offre);
+		effacerValeurs();
+	}
+	else {
+		leverErreur("Champs invalides");
 	}
 
 	Header("Location: $url_lister_offre");

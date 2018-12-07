@@ -16,15 +16,18 @@ if ($nom_valid and $mdp_valid) {
 	if($commerce) {
 		deconnecterClient();
 		connecterCommerce($commerce);
+		effacerValeurs();
 		Header("Location: $url_lister_clients");
 	}
 	else {
 		// Connexion échouée.
+		leverErreur("Mot de passe ou identifiant invalide");
 		Header("Location: $url_connexion");
 	}
 }
 else {
 	// Champs invalides.
+	leverErreur("Mot de passe ou identifiant invalide");
 	Header("Location: $url_connexion");
 }
 

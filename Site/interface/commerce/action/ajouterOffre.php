@@ -40,11 +40,13 @@ else {
 			}
 			else {
 				// Le produit existait déjà.
+				leverErreur("Offre déjà existante");
 				Header("Location: $url_ajouter_offre");
 			}
 		}
 	}
 	else{
+		leverErreur("Champs invalides");
 		Header("Location: $$url_ajouter_offre");
 	}
 }

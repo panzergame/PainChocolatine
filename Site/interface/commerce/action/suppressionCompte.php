@@ -14,6 +14,10 @@ if ($commerce !== null) {
 	if ($mdp_valid) {
 		supprimerCommerce($commerce->nom ,$mdp);
 		deconnecterCommerce();
+		effacerValeurs();
+	}
+	else {
+		leverErreur("Mot de passe invalide");
 	}
 
 	Header("Location: $url_lister_commerce");

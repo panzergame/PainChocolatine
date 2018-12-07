@@ -1,6 +1,7 @@
 <?php
 include_once "include/db/main.php";
 include_once "include/get.php";
+include_once "include/error.php";
 ?>
 
 <!DOCTYPE html/>
@@ -64,3 +65,11 @@ include_once "include/get.php";
 
 		</ul>
 	</header>
+
+	<section>
+		<?php
+			$erreur = erreurActuelle();
+			if (!empty($erreur)) {
+				echo "<p id=\"erreur\">Erreur : $erreur</p>";
+			}
+		?>

@@ -36,11 +36,13 @@ else {
 		}
 		else {
 			// Produit déjà existant.
+			leverErreur("Produit déjà existant");
 			Header("Location: $url_ajout_produit");
 		}
 	}
 	else {
 		// champs invalides
+		leverErreur("Champs invalides");
 		Header("Location: $url_ajout_produit");
 	}
 }

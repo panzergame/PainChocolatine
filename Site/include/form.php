@@ -20,7 +20,8 @@ function enregistrerChampValide($nom, $value)
  */
 function effacerValeurs()
 {
-// 	unset($_SESSION["form"]);
+	unset($_SESSION["form"]);
+	unset($_SESSION["erreur"]);
 }
 
 /** Récupère la valeur par défaut d'un champ.

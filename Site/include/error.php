@@ -55,4 +55,18 @@ function valeurValideFiles($nom)
 	}
 }
 
+function leverErreur($erreur)
+{
+	$_SESSION["erreur"] = $erreur;
+}
+
+function erreurActuelle()
+{
+	if (isset($_SESSION["erreur"])) {
+		return $_SESSION["erreur"];
+	}
+
+	return "";
+}
+
 ?>

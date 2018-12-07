@@ -22,11 +22,13 @@ if ($nom_valid and $mdp_valid and $email_valid and $image_valid) {
 	}
 	else {
 		// Connexion échouée, client déjà existant.
+		leverErreur("Client déjà existant");
 		Header("Location: $url_inscription");
 	}
 }
 else {
 	// Champs invalides.
+	leverErreur("Champs invalides");
 	Header("Location: $url_inscription");
 }
 
