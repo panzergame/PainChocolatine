@@ -15,16 +15,16 @@ include_once "include/error.php";
 	<header>
 		<ul>
 		<?php
-			$url_connexion = getUrl("index.php", array("action" => "connexion"));
-			$url_deconnexion = getUrl("index.php", array("action" => "deconnexion"));
-			$url_gestion_compte = getUrl("index.php", array("action" => "gestionCompte"));
-			$url_inscription = getUrl("index.php", array("action" => "inscription"));
-			$url_lister_commerce = getUrl("index.php", array("action" => "listerCommerce"));
-			$url_lister_client = getUrl("index.php", array("action" => "listerClient"));
-			$url_lister_reservation = getUrl("index.php", array("action" => "listerReservation"));
-			$url_lister_ses_produit = getUrl("index.php", array("action" => "listerSesProduit"));
-			$url_ajouter_produit = getUrl("index.php", array("action" => "ajouterProduit"));
-			$url_ajouter_offre = getUrl("index.php", array("action" => "ajouterOffre"));
+			$url_connexion = getUrlIndex("connexion");
+			$url_deconnexion = getUrlIndex("deconnexion");
+			$url_gestion_compte = getUrlIndex("gestionCompte");
+			$url_inscription = getUrlIndex("inscription");
+			$url_lister_commerce = getUrlIndex("listerCommerce");
+			$url_lister_client = getUrlIndex("listerClient");
+			$url_lister_reservation = getUrlIndex("listerReservation");
+			$url_lister_ses_produit = getUrlIndex("listerSesProduit");
+			$url_ajouter_produit = getUrlIndex("ajouterProduit");
+			$url_ajouter_offre = getUrlIndex("ajouterOffre");
 
 			$client = clientConnecte();
 			$commerce = commerceConnecte();

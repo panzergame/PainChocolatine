@@ -5,5 +5,6 @@ include_once "../../../include/db/session.php";
 deconnecterClient();
 deconnecterCommerce();
 
-Header("Location: ../../../index.php");
+$url = getUrlIndex("listerCommerce");
+redirigerUrl($url);
 ?>

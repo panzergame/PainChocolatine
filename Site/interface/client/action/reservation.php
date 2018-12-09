@@ -5,9 +5,9 @@ include_once "../../../include/db/offre.php";
 include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
-$url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
-$url_lister_reservation = getUrl("../../../index.php", array("action" => "listerReservation"));
-$url_reserver = getUrl("../../../index.php", array("action" => "ajouterReservation"));
+$url_connexion = getUrlIndex("connexion");
+$url_lister_reservation = getUrlIndex("listerReservation");
+$url_reserver = getUrlIndex("ajouterReservation");
 
 $client = clientConnecte();
 $offre = offreSelectionne();

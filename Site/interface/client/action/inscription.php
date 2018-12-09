@@ -5,8 +5,8 @@ include_once "../../../include/db/client.php";
 include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
-$url_inscription = getUrl("../../../index.php", array("action" => "inscription"));
-$url_lister_commerce = getUrl("../../../index.php", array("action" => "listerCommerce"));
+$url_inscription = getUrlIndex("inscription");
+$url_lister_commerce = getUrlIndex("listerCommerce");
 
 valeurValidePost("nom");
 valeurValidePost("mdp");

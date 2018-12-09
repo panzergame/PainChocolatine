@@ -6,8 +6,8 @@ include_once "../../../include/error.php";
 
 $commerce = commerceConnecte();
 
-$url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
-$url_lister_produit = getUrl("../../../index.php", array("action" => "listerProduit"));
+$url_connexion = getUrlIndex("connexion");
+$url_lister_produit = getUrlIndex("listerProduit");
 
 if ($commerce == null) {
 	// On renvoie vers la page de connexion

@@ -1,4 +1,4 @@
 <?php
-	$url = getUrl("../../index.php", array("action" => "listerReservation"));
+	$url = getUrlIndex("listerReservation");
 	Header("Location: $url");
 ?>

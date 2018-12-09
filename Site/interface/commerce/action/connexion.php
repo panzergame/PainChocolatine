@@ -4,8 +4,8 @@ include_once "../../../include/db/session.php";
 include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
-$url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
-$url_lister_clients = getUrl("../../../index.php", array("action" => "listerClient"));
+$url_connexion = getUrlIndex("connexion");
+$url_lister_clients = getUrlIndex("listerClient");
 
 valeurValidePost("nom");
 valeurValidePost("mdp");

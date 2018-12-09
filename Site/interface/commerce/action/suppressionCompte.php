@@ -4,7 +4,7 @@ include_once "../../../include/db/client.php";
 include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
-$url_lister_commerce = getUrl("../../../index.php", array("action" => "listerCommerce"));
+$url_lister_commerce = getUrlIndex("listerCommerce");
 
 $commerce = commerceConnecte();
 

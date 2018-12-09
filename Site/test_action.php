@@ -2,7 +2,7 @@
 
 include_once "include/url.php";
 
-$url = getUrl("index.php", array("action" => "listerCommerce"));
+$url = getUrlIndex("listerCommerce");
 
 header("Location: $url");
 

@@ -1,6 +1,7 @@
 <?php
 
 include_once "form.php";
+include_once "url.php";
 
 /** Teste la présence et la validité (non vide) d'un champ de formulaire.
  * Créer les variables globales $[nom] et $[nom]_valid. $[nom] contient la
@@ -64,21 +65,21 @@ function erreurAction($erreur, $forward_url)
 	$_SESSION["erreur"] = $erreur;
 
 	// Redirection.
-	Header("Location: $forward_url");
+	redirigerUrl($forward_url);
 }
 
 /** Valider le bon fonctionnement d'un formulaire.
  * Efface les valeurs de formulaire, place le message d'erreur actuel et redirige la page.
  * \param forward_url L'url de redirection.
  */
-function validerAction($forward_url)
+function valideAction($forward_url)
 {
 	unset($_SESSION["erreur"]);
 
 	effacerValeurs();
 
 	// Redirection.
-	Header("Location: $forward_url");
+	redirigerUrl($forward_url);
 }
 
 /** Renvoie le message d'erreur actuel.

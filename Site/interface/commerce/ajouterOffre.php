@@ -8,7 +8,7 @@ $commerce = commerceConnecte();
 
 <?php
 
-$url_ajouter_produit = getUrl("index.php", array("action" => "ajouterProduit"));
+$url_ajouter_produit = getUrlIndex("ajouterProduit");
 echo "<a href=\"$url_ajouter_produit\">Ajouter un produit</a>";
 
 ?>

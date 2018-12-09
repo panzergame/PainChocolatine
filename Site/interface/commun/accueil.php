@@ -1,4 +1,4 @@
 <?php
-	$url = getUrl("../../index.php", array("action" => "listerCommerce"));
+	$url = getUrlIndex("listerCommerce");
 	Header("Location: $url");
 ?>

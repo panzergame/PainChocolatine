@@ -17,7 +17,7 @@ if ($id_valid and $action_valid) {
 	selectionnerCommerce($commerce);
 
 	$url = getUrl("../../../index.php", array("action" => $action));
-	Header("Location: $url");
+	redirigerUrl($url);
 }
 
 ?>
