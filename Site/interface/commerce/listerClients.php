@@ -18,6 +18,7 @@ if($commerce !== null) {
 		$offre = obtenirOffreId($reservation->idOffre);
 		$produit = obtenirProduitId($offre->idProduit);
 
+		$id = $reservation->id;
 		$nom_client = $client->nom;
 		$nom_produit = $produit->nom;
 		$horaire = $offre->horaire;
@@ -30,6 +31,11 @@ if($commerce !== null) {
 		echo "<td>$horaire</td>";
 		echo "<td>$qte</td>";
 		echo "<td>$prix_total</td>";
+		echo "<td>";
+		echo "<form action=\"interface/commerce/action/validerReservation.php\" method=\"post\">";
+		echo "<button type=\"submit\" name=\"id\" value=\"$id\">Valider</button>";
+		echo "</form>";
+		echo "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";

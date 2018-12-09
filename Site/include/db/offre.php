@@ -39,7 +39,7 @@ function listerOffres($produit)
 }
 
 /** Renvoi l'offre correspondante à l'id.
- * \param idCommerce Id de l'offre.
+ * \param idOffre Id de l'offre.
  * \return Offre.
  */
 function obtenirOffreId($idOffre)

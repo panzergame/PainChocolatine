@@ -50,8 +50,11 @@ switch ($action) {
 	case "gestionCompte":
 		include_once "commun/gestionCompte.php";
 		break;
-    case "listerStatistique":
-        include_once "commun/listerStatistique.php";
+    case "listerStatistiqueClient":
+        include_once "client/listerStatistique.php";
+        break;
+    case "listerStatistiqueCommerce":
+        include_once "commerce/listerStatistique.php";
         break;
 }
 

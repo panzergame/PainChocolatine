@@ -1,5 +1,7 @@
 <?php
 
+echo "<h1>Liste des reservations efféctuées </h1>";
+
 $commerce = commerceConnecte();
 
 if($commerce !== null) {
@@ -23,7 +25,7 @@ if($commerce !== null) {
 		$nom_client = $client->nom;
 		$nom_produit = $produit->nom;
 		$horaire = $offre->horaire;
-		$qte = $reservation->qte;
+		$qte = $statistique->qte;
 		$prix_total = $produit->prix * $qte;
         $date = $statistique->jour;
 

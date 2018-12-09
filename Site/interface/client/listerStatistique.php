@@ -2,6 +2,8 @@
 
 $client = clientConnecte();
 
+echo "<h1>Liste des reservations efféctuées </h1>";
+
 if($client !== null) {
 	$statistiques = listerStatistiqueClient($client);
 	echo "<table>";
@@ -18,12 +20,11 @@ if($client !== null) {
 		$commerce = obtenirCommerceId($statistique->idCommerce);
 		$offre = obtenirOffreId($statistique->idOffre);
 		$produit = obtenirProduitId($offre->idProduit);
-        
 
 		$nom_commerce = $commerce->nom;
 		$nom_produit = $produit->nom;
 		$horaire = $offre->horaire;
-		$qte = $reservation->qte;
+		$qte = $statistique->qte;
 		$prix_total = $produit->prix * $qte;
         $date = $statistique->jour;
 

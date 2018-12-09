@@ -25,6 +25,8 @@ include_once "include/error.php";
 			$url_lister_ses_produit = getUrlIndex("listerSesProduit");
 			$url_ajouter_produit = getUrlIndex("ajouterProduit");
 			$url_ajouter_offre = getUrlIndex("ajouterOffre");
+			$url_statistique_commerce = getUrlIndex("listerStatistiqueCommerce");
+			$url_statistique_client = getUrlIndex("listerStatistiqueClient");
 
 			$client = clientConnecte();
 			$commerce = commerceConnecte();
@@ -49,12 +51,14 @@ include_once "include/error.php";
 				if ($client !== null) {
 					echo "<li><a href=\"$url_lister_commerce\">Les commerces</a></li>";
 					echo "<li><a href=\"$url_lister_reservation\">Ses résérvations</a></li>";
+					echo "<li><a href=\"$url_statistique_client\">Ses résérvations efféctuées</a></li>";
 				}
 				else if ($commerce !== null) {
 					echo "<li><a href=\"$url_lister_client\">Ses clients</a></li>";
 					echo "<li><a href=\"$url_lister_ses_produit\">Ses produits</a></li>";
 					echo "<li><a href=\"$url_ajouter_produit\">Ajouter un produit</a></li>";
 					echo "<li><a href=\"$url_ajouter_offre\">Ajouter une offre</a></li>";
+					echo "<li><a href=\"$url_statistique_commerce\">Ses résérvations efféctuées</a></li>";
 				}
 			}
 			else {

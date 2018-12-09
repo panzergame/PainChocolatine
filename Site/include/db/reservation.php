@@ -79,6 +79,23 @@ function listerReservationsOffre($offre)
 	return $reservations;
 }
 
+/** Renvoi la reservation correspondante à la reservation.
+ * \param idReservation Id de la reservation.
+ * \return Reservation.
+ */
+function obtenirReservationId($idReservation)
+{
+	global $db;
+
+	$c = "SELECT * FROM `reservation` WHERE id = $idReservation";
+	$r = mysqli_query($db, $c);
+	$row = mysqli_fetch_assoc($r);
+
+	$reservation = new Reservation();
+	extraireLigne($row, $reservation);
+
+	return $reservation;
+}
 
 /** Ajoute une reservation pour une offre.
  * \param client Le client qui réserve.
