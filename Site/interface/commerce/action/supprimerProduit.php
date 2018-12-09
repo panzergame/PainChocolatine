@@ -1,7 +1,7 @@
 <?php
 
 include_once "../../../include/db/session.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 $commerce = commerceConnecte();
@@ -11,7 +11,7 @@ $url_lister_produit = getUrl("../../../index.php", array("action" => "listerProd
 
 if ($commerce == null) {
 	// On renvoie vers la page de connexion
-	Header("Location: $url_connexion");
+	erreurAction("", $url_connexion);
 }
 else {
 	valeurValideNumericPost("id");
@@ -19,11 +19,9 @@ else {
 	if ($id_valid) {
 		$produit = obtenirProduitId($id);
 		supprimerProduit($produit);
-		valideAction();
+		valideAction($url_lister_produit);
 	}
 	else {
-		erreurAction("Champs invalides");
+		erreurAction("Champs invalides", $url_lister_produit);
 	}
-
-	Header("Location: $url_lister_produit");
 }

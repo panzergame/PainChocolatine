@@ -1,6 +1,6 @@
 <?php
 
-include_once "include/get.php";
+include_once "include/url.php";
 include_once "include/form.php";
 
 $action = "listerCommerce";

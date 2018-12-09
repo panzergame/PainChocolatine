@@ -1,7 +1,7 @@
 <?php
 
 include_once "../../../include/db/session.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 $url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
@@ -16,19 +16,16 @@ if ($nom_valid and $mdp_valid) {
 	if($client) {
 		deconnecterCommerce();
 		connecterClient($client);
-		valideAction();
-		Header("Location: $url_lister_commerce");
+		valideAction($url_lister_commerce);
 	}
 	else {
 		// Connexion échouée.
-		erreurAction("Mot de passe ou identifiant invalide");
-		Header("Location: $url_connexion");
+		erreurAction("Mot de passe ou identifiant invalide", $url_connexion);
 	}
 }
 else {
 	// Champs invalides.
-	erreurAction("Champs invalides");
-	Header("Location: $url_connexion");
+	erreurAction("Champs invalides", $url_connexion);
 }
 
 ?>

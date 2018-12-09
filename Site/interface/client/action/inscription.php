@@ -2,7 +2,7 @@
 
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/client.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 $url_inscription = getUrl("../../../index.php", array("action" => "inscription"));
@@ -17,19 +17,16 @@ if ($nom_valid and $mdp_valid and $email_valid and $image_valid) {
 
 	if($client) {
 		connecterClient($client);
-		valideAction();
-		Header("Location: $url_lister_commerce");
+		valideAction($url_lister_commerce);
 	}
 	else {
 		// Connexion échouée, client déjà existant.
-		erreurAction("Client déjà existant");
-		Header("Location: $url_inscription");
+		erreurAction("Client déjà existant", $url_inscription);
 	}
 }
 else {
 	// Champs invalides.
-	erreurAction("Champs invalides");
-	Header("Location: $url_inscription");
+	erreurAction("Champs invalides", $url_inscription);
 }
 
 ?>

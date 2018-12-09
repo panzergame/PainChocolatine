@@ -1,6 +1,6 @@
 <?php
 include_once "include/db/main.php";
-include_once "include/get.php";
+include_once "include/url.php";
 include_once "include/error.php";
 ?>
 

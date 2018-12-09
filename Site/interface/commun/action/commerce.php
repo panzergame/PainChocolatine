@@ -6,7 +6,7 @@
 
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/commerce.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 valeurValideNumericPost("id");

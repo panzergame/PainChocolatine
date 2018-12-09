@@ -1,7 +1,7 @@
 <?php
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/client.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 $url_lister_commerce = getUrl("../../../index.php", array("action" => "listerCommerce"));
@@ -14,9 +14,10 @@ if ($client !== null) {
 	if ($mdp_valid) {
 		supprimerClient($client->nom ,$mdp);
 		deconnecterClient();
+		valideAction($url_lister_commerce);
 	}
 
-	Header("Location: $url_lister_commerce");
+	erreurAction("Mot de passe invalide", $url_lister_commerce);
 }
 
 ?>

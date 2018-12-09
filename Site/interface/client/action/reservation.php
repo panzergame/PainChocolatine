@@ -2,7 +2,7 @@
 include_once "../../../include/db/session.php";
 include_once "../../../include/db/reservation.php";
 include_once "../../../include/db/offre.php";
-include_once "../../../include/get.php";
+include_once "../../../include/url.php";
 include_once "../../../include/error.php";
 
 $url_connexion = getUrl("../../../index.php", array("action" => "connexion"));
@@ -13,7 +13,7 @@ $client = clientConnecte();
 $offre = offreSelectionne();
 
 if($client === null) {
-	Header("Location: $url_connexion");
+	erreurAction("", $url_connexion);
 }
 else {
 	valeurValidePost("qte");
@@ -21,14 +21,14 @@ else {
 	if ($qte_valid) {
 		if($qte > $offre->qteDispo or $qte > $offre->qteMaxClient) {
 			// Impossible de reserver.
-			Header("Location: $url_reserver");
+			erreurAction("Impossible de reserver, quantité trop importante", $url_reserver);
 		}
 		else {
 			$reservation = ajouterReservation($client, $offre, $qte);
 			consommerOffre($offre, $qte);
-			valideAction();
-			Header("Location: $url_lister_reservation");
+			valideAction($url_lister_reservation);
 		}
 	}
+	erreurAction("Champs invalides");
 }
 ?>
