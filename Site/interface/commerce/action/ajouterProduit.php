@@ -31,18 +31,18 @@ else {
 		$produit = ajouterProduit($commerce, $nom, $description, $image, $prix);
 		if ($produit !== null) {
 			selectionnerProduit($produit);
-			effacerValeurs();
+			valideAction();
 			Header("Location: $url_ajouter_offre");
 		}
 		else {
 			// Produit déjà existant.
-			leverErreur("Produit déjà existant");
+			erreurAction("Produit déjà existant");
 			Header("Location: $url_ajout_produit");
 		}
 	}
 	else {
 		// champs invalides
-		leverErreur("Champs invalides");
+		erreurAction("Champs invalides");
 		Header("Location: $url_ajout_produit");
 	}
 }

@@ -19,10 +19,10 @@ else {
 	if ($id_valid) {
 		$produit = obtenirProduitId($id);
 		supprimerProduit($produit);
-		effacerValeurs();
+		valideAction();
 	}
 	else {
-		leverErreur("Champs invalides");
+		erreurAction("Champs invalides");
 	}
 
 	Header("Location: $url_lister_produit");

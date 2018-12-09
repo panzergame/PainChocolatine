@@ -17,18 +17,18 @@ if ($nom_valid and $mdp_valid and $email_valid and $image_valid) {
 
 	if($client) {
 		connecterClient($client);
-		effacerValeurs();
+		valideAction();
 		Header("Location: $url_lister_commerce");
 	}
 	else {
 		// Connexion échouée, client déjà existant.
-		leverErreur("Client déjà existant");
+		erreurAction("Client déjà existant");
 		Header("Location: $url_inscription");
 	}
 }
 else {
 	// Champs invalides.
-	leverErreur("Champs invalides");
+	erreurAction("Champs invalides");
 	Header("Location: $url_inscription");
 }
 

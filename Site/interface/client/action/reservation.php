@@ -26,7 +26,7 @@ else {
 		else {
 			$reservation = ajouterReservation($client, $offre, $qte);
 			consommerOffre($offre, $qte);
-			effacerValeurs();
+			valideAction();
 			Header("Location: $url_lister_reservation");
 		}
 	}

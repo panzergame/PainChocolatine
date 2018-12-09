@@ -19,18 +19,18 @@ if ($nom_valid and $mdp_valid and $email_valid and $tel_valid and $type_valid an
 
 	if($commerce) {
 		connecterCommerce($commerce);
-		effacerValeurs();
+		valideAction();
 		Header("Location: $url_lister_clients");
 	}
 	else {
 		// Connexion échouée, commerce déjà existant.
-		leverErreur("Compte déjà existant");
+		erreurAction("Compte déjà existant");
 		Header("Location: $url_inscription");
 	}
 }
 else {
 	// Champs invalides.
-	leverErreur("Champs invalides");
+	erreurAction("Champs invalides");
 	Header("Location: $url_inscription");
 }
 

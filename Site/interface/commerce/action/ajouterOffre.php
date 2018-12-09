@@ -35,18 +35,18 @@ else {
 				// Offre ajouté.
 				selectionnerCommerce($commerce);
 				selectionnerProduit($produit);
-				effacerValeurs();
+				valideAction();
 				Header("Location: $url_lister_offre");
 			}
 			else {
 				// Le produit existait déjà.
-				leverErreur("Offre déjà existante");
+				erreurAction("Offre déjà existante");
 				Header("Location: $url_ajouter_offre");
 			}
 		}
 	}
 	else{
-		leverErreur("Champs invalides");
+		erreurAction("Champs invalides");
 		Header("Location: $$url_ajouter_offre");
 	}
 }

@@ -55,11 +55,29 @@ function valeurValideFiles($nom)
 	}
 }
 
-function leverErreur($erreur)
+/** Enregistre une erreur depuis un formulaire.
+ * \param erreur Le message d'erreur à enregistrer.
+ * \param forward_url L'url de redirection.
+ */
+function erreurAction($erreur, $forward_url)
 {
 	$_SESSION["erreur"] = $erreur;
 }
 
+/** Valider le bon fonctionnement d'un formulaire.
+ * Efface les valeurs de formulaire et le message d'erreur actuel.
+ * \param forward_url L'url de redirection.
+ */
+function validerAction($forward_url)
+{
+	unset($_SESSION["erreur"]);
+
+	effacerValeurs();
+}
+
+/** Renvoie le message d'erreur actuel.
+ * \return Le message d'erreur.
+ */
 function erreurActuelle()
 {
 	if (isset($_SESSION["erreur"])) {
