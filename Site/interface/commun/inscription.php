@@ -10,6 +10,7 @@ function update(option)
 	document.getElementById("tel").style.display = status;
 	document.getElementById("type").style.display = status;
 	document.getElementById("description").style.display = status;
+	document.getElementById("adresse").style.display = status;
 }
 
 </script>
@@ -30,6 +31,7 @@ function update(option)
 	entreeTexte("email", "Email");
 	entreeFichier("image", "Image profile");
 	entreeTexteId("tel", "Téléphone du commerce", "tel");
+	entreeTexteId("adresse", "Adresse du commerce", "adresse");
 	entreeTexteId("type", "Type du commerce", "type");
 	entreeTexteId("description", "Description du commerce", "description");
 

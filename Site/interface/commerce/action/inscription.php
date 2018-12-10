@@ -13,9 +13,10 @@ valeurValidePost("email");
 valeurValidePost("tel");
 valeurValidePost("type");
 valeurValidePost("description");
+valeurValidePost("adresse");
 
-if ($nom_valid and $mdp_valid and $email_valid and $tel_valid and $type_valid and $description_valid and $image_valid) {
-	$commerce = ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image);
+if ($nom_valid and $mdp_valid and $email_valid and $tel_valid and $type_valid and $description_valid and $image_valid and $adresse_valid) {
+	$commerce = ajouterCommerce($nom, $mdp, $description, $type, $tel, $adresse, $email, $image);
 
 	if($commerce) {
 		connecterCommerce($commerce);

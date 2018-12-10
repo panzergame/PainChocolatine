@@ -9,7 +9,7 @@ if($commerce !== null) {
 		<td>Nom du produit</td>
 		<td>Nom du client</td>
 		<td>Horaire</td>
-		<td>Quantité du produit</td>
+		<td>QuantitÃ© du produit</td>
 		<td>Prix total</td>
 	</tr>";
 	

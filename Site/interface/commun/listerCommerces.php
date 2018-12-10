@@ -7,11 +7,12 @@ echo "<h1>Liste de commerces</h1>";
 
 echo "<table>";
 
-echo "<tr id=\"entete\"><td></td><td>Nom</td><td>Description</td><td>Type</td><td></td></tr>";
+echo "<tr id=\"entete\"><td></td><td>Nom</td><td>Description</td><td>Type</td><td>Adresse</td><td></td></tr>";
 
 foreach ($commerces as $commerce) {
 	$nom = $commerce->nom;
 	$description = $commerce->description;
+	$adresse = $commerce->adresse;
 	$type = $commerce->type;
 	$id = $commerce->id;
 	$imagePath = imagePath($commerce->image);
@@ -21,6 +22,7 @@ foreach ($commerces as $commerce) {
 	echo "<td>$nom</td>";
 	echo "<td>$description</td>";
 	echo "<td>$type</td>";
+	echo "<td>$adresse</td>";
 	echo "<td>";
 	/* Formulaire pour lister les produits. Celui ci appelle action/commerce.php
 	 * qui se charge de selectionner le commerce de la ligne

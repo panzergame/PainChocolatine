@@ -8,6 +8,7 @@ if($client !== null) {
 	echo "<table>";
 	echo "<tr id=\"entete\">
 			<td>Commerce</td>
+			<td>Adresse</td>
 			<td>Nom du produit</td>
 			<td>Horaire</td>
 			<td>Quantite résérvé</td>
@@ -22,10 +23,12 @@ if($client !== null) {
 		$qte = $reservation->qte;
 		$prix = $produit->prix * $qte;
 		$nom_commerce = $commerce->nom;
+		$adresse = $commerce->adresse;
 		$nom_produit = $produit->nom;
 
 		echo "<tr>";
 		echo "<td>$nom_commerce</td>";
+		echo "<td>$adresse</td>";
 		echo "<td>$nom_produit</td>";
 		echo "<td>$horaire</td>";
 		echo "<td>$qte</td>";

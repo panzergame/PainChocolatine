@@ -6,6 +6,7 @@ include_once "utilisateur.php";
 class Commerce extends Utilisateur
 {
 	public $description = "";
+	public $adresse = "";
 	public $type = "";
 	public $tel = "";
 }
@@ -77,11 +78,12 @@ function obtenirCommerceId($idCommerce)
  * \param description Description du commerce.
  * \param type Type de commerce.
  * \param tel Numéro de téléphone du commerce.
+ * \param adresse L'adresse du commerce.
  * \param email Email du commerce.
  * \param image Image du commerce.
  * \return Le commerce si l'ajout est effectué, sinon null si le commerce existe déjà.
  */
-function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image)
+function ajouterCommerce($nom, $mdp, $description, $type, $tel, $adresse, $email, $image)
 {
 	global $db;
 
@@ -97,6 +99,7 @@ function ajouterCommerce($nom, $mdp, $description, $type, $tel, $email, $image)
 	$commerce->nom = $nom;
 	$commerce->mdp = $mdp;
 	$commerce->description = $description;
+	$commerce->adresse = $adresse;
 	$commerce->type = $type;
 	$commerce->tel = $tel;
 	$commerce->email = $email;

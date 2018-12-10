@@ -44,4 +44,6 @@ foreach ($produits as $produit) {
 	echo "</tr>";
 }
 
+echo "</table>";
+
 ?>
