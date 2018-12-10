@@ -7,7 +7,7 @@ echo "<h1>Liste de commerces</h1>";
 
 echo "<table>";
 
-echo "<tr><td></td><td>Nom</td><td>Description</td><td>Type</td><td></td></tr>";
+echo "<tr id=\"entete\"><td></td><td>Nom</td><td>Description</td><td>Type</td><td></td></tr>";
 
 foreach ($commerces as $commerce) {
 	$nom = $commerce->nom;

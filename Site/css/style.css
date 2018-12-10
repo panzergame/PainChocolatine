@@ -4,12 +4,17 @@ padding:0px;
 }
 body{
 font-family:arial;
+background-color: #F5B041;
 font-size:11;
 }
 
+section h1 {
+	padding: 10px;
+}
+
 header{
-height:100px;
-background: black url("header.jpg") top center no-repeat;
+	height:100px;
+background: black top center no-repeat;
 border-bottom: solid 10px;
 border-top: solid 2px orange;
 background-size:cover;
@@ -20,55 +25,72 @@ background-color: rgba(0,0,0,0.7);
 margin-top:30px;
 padding:20px;
 color:white;
-font-size:10px;
+font-size:30px;
+float: left;
 }
 
-nav,section{margin-left:40px;
+nav,section{
+margin-left:40px;
 margin-right:40px;
+margin-bottom: 20px;
 }
 
-nav li{
-display:inline-block;
-background-color:black;
-padding-top:10px;
-padding-bottom:10px;
-padding-left:20px;
-padding-right:20px;
-margin-left:20px;
+nav li {
+	display:inline-block;
 }
 
-li{
-display:inline-block;
-padding-top:10px;
-padding-bottom:10px;
-padding-left:20px;
-padding-right:20px;
-margin-left:20px;
+nav li a{
+	display:inline-block;
+	background-color:black;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	padding-right:20px;
+	margin-left:10px;
+	color:white;
+	font-weight:600;
 }
 
-nav li a{color:white;
-font-weight:600;
+header img {
+	width: 70px;
+	height: 70px;
+	margin-top: 20px;
+	position: absolute; right: 0;
 }
 
-a:hover,a:link{color:white;
+header p {
+	text-align: right;
+	color: white
+}
+
+a:hover,a:link, a:visited{color:white;
 
 text-decoration:none;}
  
 table {
-    border-collapse: collapse;
-	color : #D3D3D3;
-	border-radius :10px;
-	background-color : #533707;
+	margin-left: auto;
+    margin-right: auto;
+	width: 90%;
+	border-collapse: collapse;
+	color : white;
 }
 
-table, th, td {
+table tr {
 	background-color : #533707;
-	border: 1px solid black;
+	border-bottom: 10px solid #F5B041;
 }
 
-h2{
-margin-top:40px;
-padding:10px;
+table td {
+	padding: 10px;
+}
+
+td img {
+	width: 60px;
+	height: 60px;
+}
+
+#entete {
+	background-color: black;
 }
 
 section p{
@@ -77,6 +99,13 @@ padding:10px;
 
 button{
 	border-radius :10px;
+	padding: 5px;
+	margin-left: 10px;
+	background-color : #F9E79F;
+}
+
+form {
+	text-align: center;
 }
 
 footer{
@@ -86,5 +115,5 @@ padding-bottom:25px;
 padding-top:20px;
 text-align:center;
 font-size:80%;
-position: absolute; bottom: 0; left: 0; right: 0
+position: relative; bottom: 0; left: 0; right: 0;
 }

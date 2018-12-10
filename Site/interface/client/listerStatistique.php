@@ -7,13 +7,13 @@ echo "<h1>Liste des reservations efféctuées </h1>";
 if($client !== null) {
 	$statistiques = listerStatistiqueClient($client);
 	echo "<table>";
-	echo "<tr>
-        <th>Nom du commerce</th>
-		<th>Nom du produit</th>
-		<th>Horaire</th>
-		<th>Quantité du produit</th>
-		<th>Prix total</th>
-        <th>Jour<th>
+	echo "<tr id=\"entete\">
+        <td>Nom du commerce</td>
+		<td>Nom du produit</td>
+		<td>Horaire</td>
+		<td>Quantité du produit</td>
+		<td>Prix total</td>
+        <td>Jour<td>
 	</tr>";
 	
 	foreach ($statistiques as $statistique) {

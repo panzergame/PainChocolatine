@@ -5,12 +5,12 @@ $commerce = commerceConnecte();
 if($commerce !== null) {
 	$reservations = listerReservationsCommerce($commerce);
 	echo "<table>";
-	echo "<tr>
-		<th>Nom du produit</th>
-		<th>Nom du client</th>
-		<th>Horaire</th>
-		<th>Quantité du produit</th>
-		<th>Prix total</th>
+	echo "<tr id=\"entete\">
+		<td>Nom du produit</td>
+		<td>Nom du client</td>
+		<td>Horaire</td>
+		<td>Quantité du produit</td>
+		<td>Prix total</td>
 	</tr>";
 	
 	foreach ($reservations as $reservation) {

@@ -8,9 +8,9 @@ echo "<h1>Liste de produits</h1>";
 
 echo "<table>";
 
-echo "<tr>";
+echo "<tr id=\"entete\">";
 echo "<td></td><td>Nom</td><td>Description</td><td>Prix</td><td></td>";
-echo "<tr>";
+echo "</tr>";
 
 foreach ($produits as $produit) {
 	$nom = $produit->nom;

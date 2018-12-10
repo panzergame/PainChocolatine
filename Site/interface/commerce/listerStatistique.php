@@ -7,13 +7,13 @@ $commerce = commerceConnecte();
 if($commerce !== null) {
 	$statistiques = listerStatistiqueCommerce($commerce);
 	echo "<table>";
-	echo "<tr>
-        <th>Nom du client</th>
-		<th>Nom du produit</th>
-		<th>Horaire</th>
-		<th>Quantité du produit</th>
-		<th>Prix total</th>
-        <th>Jour</th>
+	echo "<tr id=\"entete\">
+        <td>Nom du client</td>
+		<td>Nom du produit</td>
+		<td>Horaire</td>
+		<td>Quantité du produit</td>
+		<td>Prix total</td>
+        <td>Jour</td>
 	</tr>";
 	
 	foreach ($statistiques as $statistique) {

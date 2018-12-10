@@ -7,7 +7,7 @@
  * $_SESSION["errorMsg"] et le message d'erreur.
  */
 
-session_start();
+include_once "db/session.php";
 
 /** Enregistre la valeur d'un champ valide.
  */
