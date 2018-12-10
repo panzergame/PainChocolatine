@@ -53,9 +53,9 @@
 
 \begin{frame}
 	Les commerces proposent des produits puis des offres associèes~: l'horaire ou le produit peut être fabriqué et vendu.
-	Les client liste les produits d'un commerce, puis ses offres et reserve une quantité de l'offre.
+	Le client liste les produits d'un commerce, puis ses offres et réserve une quantité de l'offre.
 	\bigbreak
-	Limitation de reservation~: quantité maximale totale, quantité maximale par client.
+	Limitation de réservation~: quantité maximale totale, quantité maximale par client.
 \end{frame}
 
 
@@ -76,7 +76,7 @@
 		\item commerce (nom, mot de passe, email, adresse, produits...)~;
 		\item produit (nom, prix, offres...)~;
 		\item offre (quantité totale, quantité par personne)~;
-		\item reservation (quantité).
+		\item réservation (quantité).
 	\end{itemize}
 
 \end{frame}
@@ -88,12 +88,12 @@
 	\begin{itemize}
 		\item s'inscrire~;
 		\item se connecter~;
-		\item lister les commerces, offre, produit.
+		\item lister les commerces, offres, produits.
 	\end{itemize}
 
 	En tant que client~:
 	\begin{itemize}
-		\item reserver une offre~;
+		\item réserver une offre~;
 		\item lister ses réservations.
 	\end{itemize}
 	
@@ -102,7 +102,7 @@
 		\item ajouter un produit~;
 		\item ajouter une offre~;
 		\item lister ses clients (réservations)~;
-		\item valider une reservation (le client la récupéré).
+		\item valider une réservation (le client la récupéré).
 	\end{itemize}
 \end{frame}
 
@@ -127,12 +127,12 @@
 \subsection{Analyse des fonctionnalités}
 
 \begin{frame}
-	Pour chaque classe, definition de fonctions pour~:
+	Pour chaque classe, définition des fonctions pour~:
 	\begin{itemize}
 		\item ajouter~;
 		\item récuperer par l'id~;
 		\item lister par un identifiant~: par exemple lister les offres d'un produit~;
-		\item supprimmer.
+		\item supprimer.
 	\end{itemize}
 
 	Définition dans include/ dans un fichier séparé par nom de classe.
@@ -140,6 +140,23 @@
 \end{frame}
 
 \subsection{Architecture du site}
+
+\begin{frame}
+	Découpage des fichiers de l'interface en 3 parties~:
+	\begin{itemize}
+		\item client/~: les fichiers relatif aux fonctions pour un client connecté~;
+		\item commerce/~: les fichiers relatif aux fonctions pour un commerce connecté~;
+		\item commun/~: les fichiers relatif aux fonctions communes pouvant être réalisé sans connexion.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Abstraction}
+	Utilisation de type et fonctions abstraite pour manipuler la base de donnée, les formulaire, la session.
+	\bigbreak
+	Plus d'utilisation de \_SESSION, \_POST ou de requète SQL dans les fichiers de interface/.
+	\bigbreak
+	Facilite la documentation les testes et la compréhension des opérations.
+\end{frame}
 
 \begin{frame}[fragile]
 	\begin{multicols}{3}
@@ -151,11 +168,11 @@ css
 		\end{Verbatim}
 \color{blue}
 		\begin{Verbatim}
-include
+include/
 		\end{Verbatim}
 \color{violet}
 		\begin{Verbatim}
-  db
+  db/
     client.php
     commerce.php
     db.php
@@ -163,7 +180,7 @@ include
     main.php
     offre.php
     produit.php
-    reservation.php
+    réservation.php
     session.php
     statistique.php
     utilisateur.php
@@ -182,7 +199,7 @@ index.php
 		\end{Verbatim}
 \color{black}
 		\begin{Verbatim}
-interface
+interface/
 		\end{Verbatim}
 \color{red}
 		\begin{Verbatim}
@@ -190,14 +207,14 @@ interface
 		\end{Verbatim}
 \color{blue}
 		\begin{Verbatim}
-  client
+  client/
 		\end{Verbatim}
 \color{forestgreen}
 		\begin{Verbatim}
-    action
+    action/
       connexion.php
       inscription.php
-      reservation.php
+      réservation.php
       suppressionCompte.php
     		\end{Verbatim}
 \color{frenchblue}
@@ -208,11 +225,11 @@ interface
 		\end{Verbatim}
 \color{blue}
 		\begin{Verbatim}
-  commerce
+  commerce/
 		\end{Verbatim}
 \color{forestgreen}
 		\begin{Verbatim}
-    action
+    action/
       ajouterOffre.php
       ajouterProduit.php
       connexion.php
@@ -232,11 +249,11 @@ interface
   		\end{Verbatim}
 \color{blue}
 		\begin{Verbatim}
-  commun
+  commun/
     		\end{Verbatim}
 \color{forestgreen}
 		\begin{Verbatim}
-    action
+    action/
       commerce.php
       connexion.php
       deconnexion.php
@@ -256,7 +273,7 @@ interface
 		\end{Verbatim}
 \color{blue}
 		\begin{Verbatim}
-uploads
+uploads/
 		\end{Verbatim}
 		}
 	\end{multicols}
@@ -269,8 +286,8 @@ uploads
 \begin{frame}{Sous projets}
 	3 sous projets~:
 	\begin{itemize}
-		\item interface base de donnée~;
-		\item affichage et formulaire~;
+		\item interface base de donnée (include/)~;
+		\item affichage et formulaire (interface/)~;
 		\item habillage CSS.
 	\end{itemize}
 \end{frame}
@@ -287,24 +304,44 @@ uploads
 \subsection{Gestion de version}
 
 \begin{frame}{Git}
+	Travail de plusieurs personne sur les mêmes fichiers.
+	\bigbreak
 	Test en continue de la validité du travail de chaque personne.
+	\bigbreak
+	\url{https://github.com/panzergame/PainChocolatine}
 \end{frame}
 
 \subsection{Objectifs hebdomadaires}
 
 \begin{frame}
 	\begin{itemize}
-		\item $1^{ere}$ semaine~;
-		\item $2^{eme}$ semaine~;
-		\item $3^{eme}$ semaine~;
-		\item $4^{eme}$ semaine~;
-		\item $5^{eme}$ semaine~;
+		\item $1^{ere}$ semaine~: définition de la structure de donnée et des actions~;
+		\item $2^{eme}$ semaine~: finalisation de la base de donnée et test de toutes les fonctions~;
+		\item $3^{eme}$ semaine~: écriture des formulaires de connexion inscription, visualisation et réservation~;
+		\item $4^{eme}$ semaine~: finalisation des formulaires, ajouter un produit, une offre~;
+		\item $5^{eme}$ semaine~: formulaire de validation des réservations et habillage~;
 	\end{itemize}
+
+	Tous les objectifs ont été atteind sans retard.
 
 \end{frame}
 
 \section{Démonstration}
 
 \subsection{Exemple de la démonstration}
+
+\begin{frame}{Explication de la démonstration}
+	\begin{itemize}
+		\item Connecter un commerce~: Tocroustine~;
+		\item Ajouter un produit~: Croissant à 0.90\euro~;
+		\item Ajouter une offre~: 30 croissants à 8h~;
+		\item Inscrire un client~: Michel~;
+		\item Visualiser les produits~;
+		\item Reserver un croissant~;
+		\item Visualiser les réservations du client~;
+		\item Visualiser les réservations du commerce.
+	\end{itemize}
+\end{frame}
+
 
 \end{document}
