@@ -1,0 +1,145 @@
+\documentclass{beamer}
+
+\input{entete_beamer_pdflatex}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{fancyvrb}
+\usepackage[french,onelanguage]{algorithm2e}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{dirtytalk}
+
+\useoutertheme{infolines}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+\title{Projet Web Pain Chocolatine}
+\subtitle{INFO 305}
+\author{Clerc Gregory, Wagner Robin, Pleinet Estelle, Porteries Tristan}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sommaire}
+    \begin{multicols}{2}
+      {
+% 		\setcounter{tocdepth}{1}
+        \tableofcontents
+      }
+    \end{multicols}
+\end{frame}
+
+\section{Presentation du projet}
+
+\subsection{Idée}
+
+\begin{frame}{But du projet}
+	
+\end{frame}
+
+\subsection{Exemple}
+
+\begin{frame}{Le sandwich de Michel}
+	
+\end{frame}
+
+\subsection{Cahier des charges}
+
+\begin{frame}{Entités du système}
+	Plusieurs entités sont nécessaire au fonctionnement du système.
+	\begin{itemize}
+		\item client (nom, mot de passe, email...)~;
+		\item commerce (nom, mot de passe, email, adresse, produits...)~;
+		\item produit (nom, prix, offres...)~;
+		\item offre (quantité totale, quantité par personne)~;
+		\item reservation (quantité).
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	Liste des fonctionnalités défini avant l'écriture du site. \\
+	fonctionnalités communes~;
+	\begin{itemize}
+		\item s'inscrire~;
+		\item se connecter~;
+		\item lister les commerces, offre, produit.
+	\end{itemize}
+
+	En tant que client~:
+	\begin{itemize}
+		\item reserver une offre~;
+		\item lister ses réservations.
+	\end{itemize}
+	
+	En tant que commerce~:
+	\begin{itemize}
+		\item ajouter un produit~;
+		\item ajouter une offre~;
+		\item lister ses clients (réservations)~;
+		\item valider une reservation (le client la récupéré).
+	\end{itemize}
+
+
+\end{frame}
+
+
+\section{Réalisation}
+
+\subsection{Organisation de donnée}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics[height=8.5cm]{uml.png}
+	\end{center}
+\end{frame}
+
+
+\subsection{Analyse des fonctionnalités}
+
+\begin{frame}
+	
+\end{frame}
+
+\section{Répartition du travail et méthodes}
+
+\subsection{Repartition}
+
+\begin{frame}{Écriture de l'architecture}
+	
+\end{frame}
+
+\begin{frame}{Partage du travail par équipe}
+	
+\end{frame}
+
+\subsection{Gestion de version}
+
+\begin{frame}{Git}
+	Test en continue de la validité du travail de chaque personne.
+\end{frame}
+
+\subsection{Objectifs hebdomadaires}
+
+\begin{frame}
+	\begin{itemize}
+		\item $1^{ere}$ semaine~;
+		\item $2^{eme}$ semaine~;
+		\item $3^{eme}$ semaine~;
+		\item $4^{eme}$ semaine~;
+		\item $5^{eme}$ semaine~;
+	\end{itemize}
+
+\end{frame}
+
+
+\section{Démonstration}
+
+\subsection{Exemple de la démonstration}
+
+\end{document}
