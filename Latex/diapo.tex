@@ -9,6 +9,12 @@
 \usepackage{tabularx}
 \usepackage{makecell}
 \usepackage{dirtytalk}
+\usepackage{verbatim}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{forestgreen}{rgb}{0.0, 0.27, 0.13}
+\definecolor{frenchblue}{rgb}{0.0, 0.45, 0.73}
 
 \useoutertheme{infolines}
 \setbeamersize{text margin left=1cm,text margin right=1cm}
@@ -38,13 +44,27 @@
 \subsection{Idée}
 
 \begin{frame}{But du projet}
-	
+	Faciliter la gestion des commandes de petits commerces de vente. Par exemple des boulangeries.\\
+	Prévision de la demande du jour par l'utilisation de réservation.
+	\begin{center}
+		\includegraphics[width=10cm]{site_use.png}
+	\end{center}
 \end{frame}
+
+\begin{frame}
+	Les commerces proposent des produits puis des offres associèes~: l'horaire ou le produit peut être fabriqué et vendu.
+	Les client liste les produits d'un commerce, puis ses offres et reserve une quantité de l'offre.
+	\bigbreak
+	Limitation de reservation~: quantité maximale totale, quantité maximale par client.
+\end{frame}
+
 
 \subsection{Exemple}
 
 \begin{frame}{Le sandwich de Michel}
-	
+	\begin{center}
+		\includegraphics[width=10cm]{site_exemple.png}
+	\end{center}
 \end{frame}
 
 \subsection{Cahier des charges}
@@ -84,38 +104,184 @@
 		\item lister ses clients (réservations)~;
 		\item valider une reservation (le client la récupéré).
 	\end{itemize}
-
-
 \end{frame}
-
 
 \section{Réalisation}
 
 \subsection{Organisation de donnée}
 
-\begin{frame}
+\begin{frame}{Diagramme UML}
 	\begin{center}
-		\includegraphics[height=8.5cm]{uml.png}
+		\includegraphics[height=8cm]{uml.png}
 	\end{center}
 \end{frame}
 
+\begin{frame}
+	Définition de classes PHP correspondant à chaque entité.
+	\bigbreak
+	Définition d'une table pour chaque classe avec les champs identiques à ceux des classes.
+	\bigbreak
+	Automatiser les fonctions de lecture et d'écriture de la base de donnée.
+\end{frame}
 
 \subsection{Analyse des fonctionnalités}
 
 \begin{frame}
-	
+	Pour chaque classe, definition de fonctions pour~:
+	\begin{itemize}
+		\item ajouter~;
+		\item récuperer par l'id~;
+		\item lister par un identifiant~: par exemple lister les offres d'un produit~;
+		\item supprimmer.
+	\end{itemize}
+
+	Définition dans include/ dans un fichier séparé par nom de classe.
+
+\end{frame}
+
+\subsection{Architecture du site}
+
+\begin{frame}[fragile]
+	\begin{multicols}{3}
+		\tiny{
+\color{blue}
+		\begin{Verbatim}
+css
+  style.css
+		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+include
+		\end{Verbatim}
+\color{violet}
+		\begin{Verbatim}
+  db
+    client.php
+    commerce.php
+    db.php
+    image.php
+    main.php
+    offre.php
+    produit.php
+    reservation.php
+    session.php
+    statistique.php
+    utilisateur.php
+		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+  error.php
+  footer.php
+  form.php
+  header.php
+  url.php
+		\end{Verbatim}
+\color{red}
+		\begin{Verbatim}
+index.php
+		\end{Verbatim}
+\color{black}
+		\begin{Verbatim}
+interface
+		\end{Verbatim}
+\color{red}
+		\begin{Verbatim}
+  action.php
+		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+  client
+		\end{Verbatim}
+\color{forestgreen}
+		\begin{Verbatim}
+    action
+      connexion.php
+      inscription.php
+      reservation.php
+      suppressionCompte.php
+    		\end{Verbatim}
+\color{frenchblue}
+		\begin{Verbatim}
+    ajouterReservation.php
+    listerReservation.php
+    listerStatistique.php
+		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+  commerce
+		\end{Verbatim}
+\color{forestgreen}
+		\begin{Verbatim}
+    action
+      ajouterOffre.php
+      ajouterProduit.php
+      connexion.php
+      inscription.php
+      suppressionCompte.php
+      supprimerOffre.php
+      supprimerProduit.php
+      validerReservation.php
+    		\end{Verbatim}
+\color{frenchblue}
+		\begin{Verbatim}
+    ajouterOffre.php
+    ajouterProduit.php
+    listerClients.php
+    listerProduits.php
+    listerStatistique.php
+  		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+  commun
+    		\end{Verbatim}
+\color{forestgreen}
+		\begin{Verbatim}
+    action
+      commerce.php
+      connexion.php
+      deconnexion.php
+      inscription.php
+      offre.php
+      produit.php
+    		\end{Verbatim}
+\color{frenchblue}
+		\begin{Verbatim}
+    connexion.php
+    deconnexion.php
+    gestionCompte.php
+    inscription.php
+    listerCommerces.php
+    listerOffres.php
+    listerProduits.php
+		\end{Verbatim}
+\color{blue}
+		\begin{Verbatim}
+uploads
+		\end{Verbatim}
+		}
+	\end{multicols}
 \end{frame}
 
 \section{Répartition du travail et méthodes}
 
 \subsection{Repartition}
 
-\begin{frame}{Écriture de l'architecture}
-	
+\begin{frame}{Sous projets}
+	3 sous projets~:
+	\begin{itemize}
+		\item interface base de donnée~;
+		\item affichage et formulaire~;
+		\item habillage CSS.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Partage du travail par équipe}
-	
+	2 équipes~:
+	\begin{itemize}
+		\item Robin, Greg~: CSS, affichage~;
+		\item Estelle, Tristan~: formulaire, interface base de donnée.
+	\end{itemize}
+
 \end{frame}
 
 \subsection{Gestion de version}
@@ -136,7 +302,6 @@
 	\end{itemize}
 
 \end{frame}
-
 
 \section{Démonstration}
 
